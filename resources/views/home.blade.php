@@ -18,6 +18,9 @@
                     @endcomponent
 
                     You are logged in!
+                    <p>
+                        <a href="{{ route('design.index') }}"> Daftar Design dengan status OPEN </a>
+                    </p>
                 </div>
             </div>
         </div>

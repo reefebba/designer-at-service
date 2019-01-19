@@ -43,7 +43,7 @@ class DesignRequest extends FormRequest
             'lecturer' => 'required',
             'book' => 'nullable',
             'place' => 'required',
-            'date' => 'required|date|after:tomorrow',
+            'date' => 'required|date|after:+ 3 days', // or tomorrow ?
             'time' => 'required',
             'organizer' => 'required',
             'contact' => 'required',

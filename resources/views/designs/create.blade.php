@@ -7,7 +7,7 @@
                         <div class="card-header"><strong>Add a new design</strong></div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('design.store') }}">
+                            <form method="POST" action="{{ route('design.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="status" value="open">
                                 @if ($errors->has('status'))

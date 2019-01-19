@@ -16,12 +16,12 @@ class CreateDesignsTable extends Migration
         Schema::create('designs', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->enum('status', ['open', 'in progress', 'finished'])->default('open')->index();
+            $table->enum('status', ['open', 'in progress', 'finished', 'failed'])->default('open')->index();
             $table->string('client');
             $table->string('client_phone');
             $table->string('size');
             $table->string('base_color')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->nullable()->unique();
             $table->enum('type', [
                 'kajian rutin', 'kajian tematik', 'tablig akbar', 'safari dakwah'
             ]);

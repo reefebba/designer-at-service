@@ -9,10 +9,16 @@
 
                 <div class="card-body">
                     
+                    <p>kode pesanan: {{ $design->id }} --ditulis url/designs/kode</p>
                     <p>{{ $design->status }}</p>
+                    <p>dikerjakan oleh {{ $design->user->name }}</p>
                     <p>{{ $design->client }}</p>
                     <p>{{ $design->client_phone }}</p>
-                    <p>{{ $design->image }}</p>
+                    @empty($design->image)
+                        <p>no image</p>
+                    @else
+                        <img src="{{ $design->image }}" width="200">
+                    @endempty
                     <p>{{ $design->size }}</p>
                     <p>{{ $design->base_color }}</p>
                     <p>{{ $design->type }}</p>
@@ -30,7 +36,6 @@
                     <p>{{ $design->add_info }}</p>
                     <p>{{ $design->is_meal }}</p>
                     <p>{{ $design->is_streaming }}</p>
-                    <p>{{ $design->id }}</p>
                     
                     
                     @component('components.who')
@@ -39,6 +44,12 @@
                     @unless (Auth::check())
                         You are not signed in.
                     @endunless
+                    @auth('web')
+                        <a class="btn btn-primary" href="{{ route('design.index') }}"> Back </a>
+                    @endauth
+                    @auth('admin')
+                        <a class="btn btn-primary" href="{{ route('admin.home') }}"> Home </a>
+                    @endauth
                 </div>
                 <div class="card-footer">
                     @auth('web')

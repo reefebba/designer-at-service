@@ -20,8 +20,9 @@ class DesignController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $designs = Design::all()->where('status', 'open');
+    {   
+        // where('status', 'open') or user_id, null cause of user delete by admin
+        $designs = Design::with('user')->where('user_id', null)->get();
 
         return view('designs.index', compact('designs'));
     }
@@ -44,7 +45,16 @@ class DesignController extends Controller
      */
     public function store(DesignRequest $request)
     {
-        $design = Design::create($request->all());
+        $design = Design::create($request->except('image'));
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = $request->organizer.'_'.time().'.'.$file->getClientOriginalExtension();
+
+            $file->move('images', $fileName);
+            $filePath = url('images/'.$fileName);
+            $design->update(['image' => $filePath]);
+        }      
 
         return redirect('/designs/'.$design->id);
     }
@@ -81,10 +91,6 @@ class DesignController extends Controller
     public function updateTake(Request $request, Design $design)
     {
         $this->authorize('update', $design);
-        // $dataset = [
-        //     'user_id' => Auth::user()->id,
-        //     'status' => $request->status
-        // ];
         $request->status = 'in progress';
 
         $design->update([
