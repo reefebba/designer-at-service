@@ -15,18 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('designs/create', 'ClientController@create')->name('design.create');
+Route::post('designs', 'ClientController@store')->name('design.store');
+Route::get('designs/{design}', 'ClientController@show')->name('design.show');
+
+# Designer
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('designs', 'DesignController@index')->name('design.index');
-Route::get('designs/create', 'DesignController@create')->name('design.create');
-Route::post('designs', 'DesignController@store')->name('design.store');
-Route::get('designs/{design}', 'DesignController@show')->name('design.show');
-Route::post('designs/{design}', 'DesignController@updateTake')->name('design.update.take');
-Route::put('designs/{design}', 'DesignController@updateDrop')->name('design.update.drop');
-Route::patch('designs/{design}', 'DesignController@updateFinish')->name('design.update.finish');
+Route::get('designs', 'DesignerController@index')->name('design.index');
+Route::get('profile', 'DesignerController@getUserDetails')->name('user.show');
+Route::post('designs/{design}', 'DesignerController@updateTake')->name('design.update.take');
+Route::put('designs/{design}', 'DesignerController@updateDrop')->name('design.update.drop');
+Route::patch('designs/{design}', 'DesignerController@updateFinish')->name('design.update.finish');
 
-
+# Admin
 Route::group(['prefix' => 'admin'], function() {
 	Route::get('login', 'AdminAuth\LoginController@showLoginForm')->name('admin.login');
 	Route::post('login', 'AdminAuth\LoginController@login')->name('admin.login');

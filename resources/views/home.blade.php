@@ -21,6 +21,9 @@
                     <p>
                         <a href="{{ route('design.index') }}"> Daftar Design dengan status OPEN </a>
                     </p>
+                    <p>
+                        <a href="{{ route('user.show') }}"> User Profile </a>
+                    </p>
                 </div>
             </div>
         </div>

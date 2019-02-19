@@ -13,7 +13,10 @@
                     @endcomponent
 
                     You are logged in, Admin!
-
+                    <p>total = {{ $designs['total'] }}</p>
+                    <p>open = {{ $designs['open'] }}</p>
+                    <p>in progress = {{ $designs['inProgress'] }}</p>
+                    <p>finished = {{ $designs['finished'] }}</p>
                     <p>
                         <a href="{{ route('admin.design.open') }}"> Daftar Design dengan status OPEN </a>
                     </p>

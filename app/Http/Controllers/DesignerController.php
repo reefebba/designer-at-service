@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\DesignRequest;
 use App\Design;
+use App\User;
 use Auth;
 
-class DesignController extends Controller
+class DesignerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['create', 'store', 'show']);
+        $this->middleware('auth');
     }
 
     /**
@@ -22,52 +22,9 @@ class DesignController extends Controller
     public function index()
     {   
         // where('status', 'open') or user_id, null cause of user delete by admin
-        $designs = Design::with('user')->where('user_id', null)->get();
+        $designs = Design::with('user:id,name')->where('user_id', null)->get();
 
         return view('designs.index', compact('designs'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('designs.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(DesignRequest $request)
-    {
-        $design = Design::create($request->except('image'));
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = $request->organizer.'_'.time().'.'.$file->getClientOriginalExtension();
-
-            $file->move('images', $fileName);
-            $filePath = url('images/'.$fileName);
-            $design->update(['image' => $filePath]);
-        }      
-
-        return redirect('/designs/'.$design->id);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Design $design)
-    {                
-        return view('designs.show', compact('design'));
     }
 
     /**
@@ -76,9 +33,17 @@ class DesignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Design $design)
+    // public function edit(Design $design)
+    // {
+    //     return view('designs.edit', compact('design'));
+    // }
+
+    public function getUserDetails()
     {
-        return view('designs.edit', compact('design'));
+        $id = Auth::user()->id;
+        $user = User::withCount('designs')->findOrFail($id);
+
+        return view('users.show', compact('user'));
     }
 
     /**

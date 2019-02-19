@@ -27,7 +27,7 @@
                             <img src="{{ $user->photo }}" width="200">
                         @endempty
                         <p>{{ $user->phone }}</p>
-                        {{-- <p> total designs : {{ $user->designs_count }}</p> --}}
+                        <p> total designs : {{ $user->designs_count }}</p>
                         
                         <a href="{{ url('admin/users/'.$user->id) }}">info lengkap designs yg dikerjakan</a>
                     </div>

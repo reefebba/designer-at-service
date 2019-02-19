@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <img src="{{ $user->photo }}" width="200">
                     <p>{{ $user->phone }}</p>
-                    {{-- <p> Total designs : {{ $user->designs_count }}</p> --}}
+                    <p> Total designs : {{ $user->designs_count }}</p>
 
                     @component('components.who')
                     @endcomponent

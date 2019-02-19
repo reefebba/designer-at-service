@@ -26,7 +26,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $designs = [
+        'total' => Design::all()->count(),
+        'open' => Design::where('status', 'open')->count(),
+        'inProgress' => Design::where('status', 'in progress')->count(),
+        'finished' => Design::where('status', 'finished')->count()
+        ];
+
+        return view('admin', compact('designs'));
     }
 
     /**
@@ -64,7 +71,7 @@ class AdminController extends Controller
     
     public function getAllActiveUsers()
     {
-        $users = User::all();
+        $users = User::withCount('designs')->get();
 
         return view('users.index', compact('users'));
     }
@@ -78,6 +85,8 @@ class AdminController extends Controller
 
     public function getUserDetails(User $user)
     {
+        $user->load('designs');
+
         return view('users.show', compact('user'));
     }
 

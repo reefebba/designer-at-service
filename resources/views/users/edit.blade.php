@@ -45,7 +45,7 @@
                                 @endif
                                 
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" name="photo" id="photo" placeholder="Enter photo for designer " value="{{ old('photo') }}" autofocus>
+                                    <input type="file" class="form-control-file" name="photo" id="photo" placeholder="Enter photo for designer " autofocus>
                                 </div>
                                 @if ($errors->has('photo'))
                                     <div class="alert alert-danger">
