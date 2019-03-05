@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('designs/create', 'ClientController@create')->name('design.create');
+Route::get('/', 'ClientController@create')->name('design.create');
 Route::post('designs', 'ClientController@store')->name('design.store');
 Route::get('designs/{design}', 'ClientController@show')->name('design.show');
 
 # Designer
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'DesignerController@home')->name('home');
 Route::get('designs', 'DesignerController@index')->name('design.index');
 Route::get('profile', 'DesignerController@getUserDetails')->name('user.show');
 Route::post('designs/{design}', 'DesignerController@updateTake')->name('design.update.take');
@@ -46,9 +46,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('profile/{admin}', 'AdminController@updateAdmin')->name('admin.update');
 
     # Design Routes
-    Route::get('open-designs', 'AdminController@getAllOpenDesigns')->name('admin.design.open');
-    Route::get('in-progress-designs', 'AdminController@getAllInProgressDesigns')->name('admin.design.inprogress');
-    Route::get('finished-designs', 'AdminController@getAllFinishedDesigns')->name('admin.design.finished');
+    Route::get('design', 'AdminController@getAllOpenDesigns')->name('admin.design.open');
+    Route::get('design/progress', 'AdminController@getAllInProgressDesigns')->name('admin.design.inprogress');
+    Route::get('design/finished', 'AdminController@getAllFinishedDesigns')->name('admin.design.finished');
 
     # User Routes
     Route::get('users', 'AdminController@getAllActiveUsers')->name('admin.user.index');

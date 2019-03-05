@@ -33,7 +33,7 @@ class AdminController extends Controller
         'finished' => Design::where('status', 'finished')->count()
         ];
 
-        return view('admin', compact('designs'));
+        return view('admin/dashboard/home', compact('designs'));
     }
 
     /**
@@ -41,7 +41,7 @@ class AdminController extends Controller
      *         Design Methods
      * ==============================
      */
-    
+
     public function getAllOpenDesigns()
     {
         $designs = Design::where('status', 'open')->get();
@@ -53,14 +53,14 @@ class AdminController extends Controller
     {
         $designs = Design::where('status', 'in progress')->get();
 
-        return view('designs.index', compact('designs'));
+        return view('admin/design/in_progress', compact('designs'));
     }
 
     public function getAllFinishedDesigns()
     {
         $designs = Design::where('status', 'finished')->get();
 
-        return view('designs.index', compact('designs'));
+        return view('admin/design/finished', compact('designs'));
     }
 
     /**
@@ -68,7 +68,7 @@ class AdminController extends Controller
      *         User Methods
      * ===========================
      */
-    
+
     public function getAllActiveUsers()
     {
         $users = User::withCount('designs')->get();
@@ -112,9 +112,9 @@ class AdminController extends Controller
             $filePath = url('images/'.$fileName);
             $user->update(['photo' => $filePath]);
         }
-        
+
         $user->update($request->except('photo'));
-        
+
         return view('users.show', compact('user'));
     }
 
@@ -146,7 +146,7 @@ class AdminController extends Controller
      *         Admin Methods
      * ===========================
      */
-    
+
     public function getAdminDetails(Admin $admin)
     {
         return view('admins.show', compact('admin'));
@@ -174,9 +174,9 @@ class AdminController extends Controller
             $filePath = url('images/'.$fileName);
             $admin->update(['photo' => $filePath]);
         }
-        
+
         $admin->update($request->except('photo'));
-        
+
         return view('admins.show', compact('admin'));
     }
 }

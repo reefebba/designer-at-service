@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('designs.create');
+        return view('layouts.homepage');
     }
 
     /**
@@ -40,7 +40,7 @@ class ClientController extends Controller
             $file->move('images', $fileName);
             $filePath = url('images/'.$fileName);
             $design->update(['image' => $filePath]);
-        }      
+        }
 
         return redirect('/designs/'.$design->id);
     }
@@ -52,7 +52,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Design $design)
-    {                
+    {
         return view('designs.show', compact('design'));
     }
 
