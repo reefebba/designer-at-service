@@ -6,20 +6,28 @@
 <div class="row-middle page-body">
   <div class="page-content">
     <article>
-      <div class="order-box">
-        <div class="order">
-          <h4>Jumlah Pesanan</h4>
-        </div>
-        <div class="order">
-          <h4>Dalam Antrian</h4>
-        </div>
-        <div class="order">
-          <h4>Order Dikerjakan</h4>
-        </div>
-        <div class="order">
-          <h4>Order Selesai</h4>
-        </div>
-      </div>
+      <ol class="order-box">
+        <li class="order">
+          <a>
+            <h4>Jumlah Pesanan</h4>
+          </a>
+        </li>
+        <li class="order">
+          <a>
+            <h4>Dalam Antrian</h4>
+          </a>
+        </li>
+        <li class="order">
+          <a>
+            <h4>Order Dikerjakan</h4>
+          </a>
+        </li>
+        <li class="order">
+          <a>
+            <h4>Order Selesai</h4>
+          </a>
+        </li>
+      </ol>
     </article>
   </div>
 </div>
