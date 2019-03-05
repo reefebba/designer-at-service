@@ -20,11 +20,11 @@ class DesignerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         // where('status', 'open') or user_id, null cause of user delete by admin
         $designs = Design::with('user:id,name')->where('user_id', null)->get();
 
-        return view('designs.index', compact('designs'));
+        return view('designer/design/open', compact('designs'));
     }
 
     /**
@@ -43,7 +43,12 @@ class DesignerController extends Controller
         $id = Auth::user()->id;
         $user = User::withCount('designs')->findOrFail($id);
 
-        return view('users.show', compact('user'));
+        return view('designer/dashboard/profile', compact('user'));
+    }
+
+    public function home()
+    {
+        return view("/designer/dashboard/home");
     }
 
     /**
