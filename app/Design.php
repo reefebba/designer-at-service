@@ -14,7 +14,7 @@ class Design extends Model
     	'date'
     ];
 
-    public function user()
+    public function designer()
     {
     	return $this->belongsTo('App\User')->withDefault([
     		'name' => 'This design hasn\'t been taken yet by any user.'
