@@ -39,9 +39,9 @@ class AdminUserController extends Controller {
      */
     public function banned(User $users)
     {
-        $users->onlyTrashed()->all()->toArray();
+        $users->onlyTrashed()->get()->toArray();
 
-        return view("$view_dir/banned", compact("users"));
+        return view("$this->view_dir/banned", compact("users"));
     }
 
     /**
@@ -51,9 +51,7 @@ class AdminUserController extends Controller {
      */
     public function create()
     {
-        // $user->create
-
-        return view("admin/user/create");
+        return view("$this->view_dir/create");
     }
 
     /**
@@ -73,9 +71,11 @@ class AdminUserController extends Controller {
      *
      *
      */
-    public function edit($user)
+    public function edit(User $users, $user)
     {
-        return view("admin/user/edit");
+        $users->withTrashed()->findOrFail($user);
+
+        return view("$this->view_dir/edit", compact($users));
     }
 
     /**
@@ -85,7 +85,9 @@ class AdminUserController extends Controller {
      */
     public function store(Request $request, User $user)
     {
-        $user->createOrNew();
+        $users->create($request->toArray());
+
+        return $this->returnResponse($users);
     }
 
     /**
@@ -93,9 +95,11 @@ class AdminUserController extends Controller {
      *
      *
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $users, $user)
     {
-        $user->createOrNew();
+        $users->find($user)->updateOrCreate($request->toArray());
+
+        return $this->returnResponse($users);
     }
 
     /**
@@ -103,9 +107,11 @@ class AdminUserController extends Controller {
      *
      *
      */
-    public function delete(Request $request, User $user)
+    public function delete(User $users, $user)
     {
-        $user->createOrNew();
+        $users->find($user)->delete();
+
+        return $this->returnResponse($users);
     }
 
     /**
@@ -115,7 +121,22 @@ class AdminUserController extends Controller {
      */
     public function destroy(Request $request, User $user)
     {
-        $user->createOrNew();
+        $users->withTrashed()->find($user);
+
+        if ($users) {
+            $users->forceDelete();
+        }
+
+        return $this->returnResponse($users);
+    }
+
+    public function returnResponse($state)
+    {
+        if ($state) {
+            return response(null, 201);
+        } else {
+            return response(null, 205);
+        }
     }
 
 
