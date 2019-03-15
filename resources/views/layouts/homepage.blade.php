@@ -152,11 +152,11 @@
                       <label for="fasting"><i class="fas fa-utensils"><span class="ml-2" style="font-family:ubuntu;"> Disediakan menu buka puasa atau snack?</span></i></label>
 
                       <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
+                        <input type="radio" id="customRadioInline4" name="customRadioInline4" class="custom-control-input">
                         <label class="custom-control-label" for="customRadioInline4">Ya, disediakan</label>
                       </div>
                       <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline5" name="customRadioInline1" class="custom-control-input">
+                        <input type="radio" id="customRadioInline5" name="customRadioInline5" class="custom-control-input">
                         <label class="custom-control-label" for="customRadioInline5">Tidak</label>
                       </div>
                   </div>
@@ -165,11 +165,11 @@
 
                       <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline6" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline6">Ya, Ada</label>
+                        <label class="custom-control-label" for="customRadioInline1">Ya, Ada</label>
                       </div>
                       <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline7" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline7">Tidak Ada</label>
+                        <label class="custom-control-label" for="customRadioInline1">Tidak Ada</label>
                       </div>
                   </div>
                   <div class="form-group">

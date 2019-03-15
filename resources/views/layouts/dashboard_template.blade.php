@@ -41,7 +41,7 @@
             <a class="nav-link" href="{{route('admin.design.open')}}">Antrian Order</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.design.inprogress')}}">Order Dikerjakan</a>
+            <a class="nav-link" href="{{route('admin.design.in_progress')}}">Order Dikerjakan</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.design.finished')}}">Order Selesai</a>
