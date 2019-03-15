@@ -4,15 +4,15 @@
 
 @section("container")
 
-  @forelse ($designs as $design)
+  @forelse ($designs->toArray() as $design)
     <div class="col-md-4 mb-5">
       <div class="order-card mx-auto">
           <input class="btn-detail-order" type="checkbox" name="" >
           <div class="toggle"><i class="fas fa-info"></i></div>
           <a href="#" class="link-detail-order mx-3" data-toggle="modal" data-target="#detail-order">Detail</a>
         <div class="short-desc mx-3 mt-3">
-          <h5 class="order-id">Jenis Kajian</h5>
-          <h5 class="order-id">Judul Kajian</h5>
+          <h5 class="order-id">{{$design['type']}}</h5>
+          <h5 class="order-id">{{$design['title']}}</h5>
           <h5 class="order-id">Pemateri</h5>
           <hr>
           <h5 class="order-id">Desainer</h5>
@@ -29,4 +29,3 @@
   @endforelse
 
 @endsection
-
