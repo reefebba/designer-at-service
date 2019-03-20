@@ -18,14 +18,14 @@ class AdminDesignController extends Controller {
 
   public function showFinished(Design $designs)
   {
-      $designs->where("status", "finished")->get();
+      $designs->where("status", "finished")->with('user')->get();
 
       return view("$this->view_dir/finished", compact('designs'));
   }
 
   public function showInProgress(Design $designs)
   {
-      $designs->where("status", "in_progress")->get();
+      $designs = $designs->where("status", "in progress")->with('user')->get();
 
       return view("$this->view_dir/in_progress", compact("designs"));
   }

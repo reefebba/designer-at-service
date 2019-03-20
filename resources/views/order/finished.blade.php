@@ -4,7 +4,7 @@
 
 @section("container")
 
-  @forelse (design as designs)
+  @forelse ($design as $designs)
     <div class="col-md-4 mb-5">
       <div class="order-card mx-auto">
           <input class="btn-detail-order" type="checkbox" name="" >

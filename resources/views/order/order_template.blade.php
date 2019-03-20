@@ -1,7 +1,6 @@
 @extend("dashboard_template")
 
 @section("content"")
-
 <div class="grid-container">
   <div class="row-top">
     <header>
@@ -16,7 +15,7 @@
           </h2>
         </div>
         <!--  -->
-        <a class="admin-profile" href="admin_profile.html">
+        <a class="admin-profile" href="{{route('admin.index')}}">
           <i class="fas fa-user-circle fa-4x"></i>
         </a>
       </div>

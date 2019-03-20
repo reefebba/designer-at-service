@@ -10,12 +10,14 @@
         </tr>
       </thead>
       <tbody>
-      @forelse ($users as $user)
+      @forelse ($userx->toArray() as $user)
         <tr>
           <td>{{$user['name']}}</td>
-          <td>{{$user['designs']}}</td>
+          <td>{{$user['designs_count']}}</td>
+          <td><a href="{{route("admin.user.show",["user" => $user['id']])}}">Show</a></td>
         </tr>
       @empty
+
       @endforelse
       </tbody>
     </table>

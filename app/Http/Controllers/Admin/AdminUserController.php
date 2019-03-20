@@ -27,9 +27,11 @@ class AdminUserController extends Controller {
      */
     public function index(User $users)
     {
-        $users->withCount("designs")->get()->toArray();
+        $users->all();
 
-        return view("$this->view_dir/index", compact("users"));
+        $userx = User::withCount('designs')->get();
+
+        return view("$this->view_dir/index", compact("userx"));
     }
 
     /**
@@ -59,11 +61,11 @@ class AdminUserController extends Controller {
      *
      *
      */
-    public function show(User $users, $user)
+    public function show(User $user)
     {
-        $users->find($user);
+        // $user->;
 
-        return view("$this->view_dir/show", compact("users"));
+        return view("$this->view_dir/show", ["user" => $user]);
     }
 
     /**
@@ -71,7 +73,7 @@ class AdminUserController extends Controller {
      *
      *
      */
-    public function edit(User $users, $user)
+    public function edit(User $user)
     {
         $users->withTrashed()->findOrFail($user);
 

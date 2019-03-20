@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'ClientController@create')->name('design.create');
+Route::get('/', 'WebController@index')->name('design.create');
 Route::post('designs', 'ClientController@store')->name('design.store');
 Route::get('designs/{design}', 'ClientController@show')->name('design.show');
 
@@ -23,14 +23,17 @@ Route::get('designs/{design}', 'ClientController@show')->name('design.show');
 Auth::routes();
 
 Route::group(["prefix" => "designer", "name.designer."], function() {
-    Route::get('/dashboard', 'DesignerController@home')->name('home');
-    Route::get('profile', 'DesignerController@getUserDetails')->name('user.show');
+    Route::get('/dashboard', 'User\UserController@home')->name('home');
+    Route::get('/profile', 'DesignerController@getUserDetails')->name('user.show');
 
-    Route::group(["prefix" => "designs", "name" => "designer.design."], function() {
-        Route::get('/', 'DesignerController@index')->name('index');
-        Route::post('/{design}', 'DesignerController@takeOrder')->name('take');
-        Route::put('/{design}', 'DesignerController@dropOrder')->name('drop');
-        Route::patch('/{design}', 'DesignerController@orderFinished')->name('finish');
+    Route::group(["prefix" => "designs"], function() {
+        $name = "designer.design";
+        Route::get('/', 'DesignerController@index')->name("$name.index");
+        Route::get('/progress', 'User\UserDesignController@indexProgress')->name("$name.progress");
+        Route::get('/finished', 'User\UserDesignController@indexFinished')->name("$name.finished");
+        Route::post('/{design}/take', 'DesignerController@updateTake')->name("$name.take");
+        Route::put('/{design}/drop', 'DesignerController@updateDrop')->name("$name.drop");
+        Route::put('/{design}/finish', 'DesignerController@updateFinish')->name("$name.finish");
     });
 });
 
@@ -56,7 +59,7 @@ Route::group(["prefix" => "admin", "namespace" => "AdminAuth"], function() {
 # Admin
 Route::group(['prefix' => 'admin', "namespace" => "Admin"], function() {
 
-	  Route::get('/', 'AdminController@index')->name('admin.home');
+	  Route::get('/', 'AdminController@home')->name('admin.home');
 
     Route::group(["prefix" => "profile"], function() {
         $name = "admin";
@@ -78,7 +81,7 @@ Route::group(['prefix' => 'admin', "namespace" => "Admin"], function() {
     Route::get('users/banned', 'AdminUserController@banned')->name('admin.user.trashed');
 
     # User Management for Admin
-    Route::group(['prefix' => 'users/{user}', "name" => ""], function() {
+    Route::group(['prefix' => 'users/{user}'], function() {
         $name = "admin.user";
         Route::get('/', 'AdminUserController@show')->name("$name.show");
         Route::get('/edit', 'AdminUserController@edit')->name("$name.edit");

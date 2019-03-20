@@ -35,7 +35,7 @@
             <a class="nav-link" href="{{ route('admin.home') }}">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Designer</a>
+            <a class="nav-link" href="{{ route('admin.user.index') }}">Designer</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.design.open')}}">Antrian Order</a>
@@ -47,28 +47,27 @@
             <a class="nav-link" href="{{route('admin.design.finished')}}">Order Selesai</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add_designer.html">Tambah Desainer</a>
+            <a class="nav-link" href="{{ route('register') }}">Tambah Desainer</a>
           </li>
         </ul>
       </nav>
-      @endauth
       <!-- akhir nav -->
 
       <!-- nav dipindah -->
-      @auth("web")
+      @elseauth("web")
       <nav class="mt-2 ">
         <ul class="nav priimary-nav flex-column">
           <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('design.index')}}">Antrian Order</a>
+            <a class="nav-link" href="{{route('designer.design.index')}}">Antrian Order</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('home')}}">Order Dikerjakan</a>
+            <a class="nav-link" href="{{route('designer.design.progress')}}">Order Dikerjakan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('user.show')}}#finishedorder">Order Selesai</a>
+            <a class="nav-link" href="{{route('designer.design.finished')}}">Order Selesai</a>
           </li>
         </ul>
       </nav>
