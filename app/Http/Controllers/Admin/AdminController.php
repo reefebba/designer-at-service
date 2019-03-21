@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Design;
 use App\User;
@@ -24,7 +25,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function home()
     {
         $designs = [
         'total' => Design::all()->count(),
@@ -125,9 +126,9 @@ class AdminController extends Controller
         return redirect(route('admin.user.index'));
     }
 
-    public function restoreUser($id)
+    public function restoreUser($user)
     {
-        $user = User::onlyTrashed()->findOrFail($id);
+        $user = User::onlyTrashed()->findOrFail($user);
         $user->restore();
 
         return redirect(route('admin.user.index'));

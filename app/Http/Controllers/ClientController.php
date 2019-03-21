@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('layouts.homepage');
+        return view('homepage');
     }
 
     /**
@@ -53,7 +53,7 @@ class ClientController extends Controller
      */
     public function show(Design $design)
     {
-        return view('designs.show', compact('design'));
+        return view('order.show', compact('design'));
     }
 
 }

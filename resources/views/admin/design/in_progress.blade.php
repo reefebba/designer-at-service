@@ -7,20 +7,24 @@
   @forelse ($designs as $design)
     <div class="col-md-4 mb-5">
       <div class="order-card mx-auto">
-          <input class="btn-detail-order" type="checkbox" name="" >
-          <div class="toggle"><i class="fas fa-info"></i></div>
-          <a href="#" class="link-detail-order mx-3" data-toggle="modal" data-target="#detail-order">Detail</a>
         <div class="short-desc mx-3 mt-3">
-          <h5 class="order-id">Jenis Kajian</h5>
-          <h5 class="order-id">Judul Kajian</h5>
-          <h5 class="order-id">Pemateri</h5>
+          <h5 class="order-id">Jenis Kajian : </h5>
+          <p>{{$design->user->name}}</p><br>
           <hr>
-          <h5 class="order-id">Desainer</h5>
+          <h5 class="order-id">Jenis Kajian : </h5>
+          <p>{{$design->type}}</p><br>
+          <h5 class="order-id">Judul Kajian : </h5>
+          <p>{{$design->title}}<p><br>
+          <h5 class="order-id">Pemateri : </h5>
+          <p>{{$design->lecturer}}</p><br>
+          <h5 class="order-id">Tanggal : </h5>
+          <p>{{ $design->date }}</p><br>
+          <hr>
         </div>
-        <div class="detail-order mt-2 mx-3">
-          <p>Tempat</p>
-          <p>Tanggal</p>
-          <p>Waktu</p>
+        <div>
+          <a href="{{route('design.show', ['design' => $design->id])}}">
+            <button type="button" class="btn order-button">Detail</button>
+          </a>
         </div>
       </div>
     </div>
@@ -29,4 +33,3 @@
   @endforelse
 
 @endsection
-

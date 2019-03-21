@@ -49,7 +49,7 @@
                         You are not signed in.
                     @endunless
                     @auth('web')
-                        <a class="btn btn-primary" href="{{ route('design.index') }}"> Back </a>
+                        <a class="btn btn-primary" href="{{ route('designer.design.index') }}"> Back </a>
                     @endauth
                     @auth('admin')
                         <a class="btn btn-primary" href="{{ route('admin.home') }}"> Home </a>
@@ -58,7 +58,7 @@
                 <div class="card-footer">
                     @auth('web')
                         @empty($design->user_id)
-                            <form style="float:right" method="POST" action="/designs/{{$design->id}}">
+                            <form style="float:right" method="POST" action="{{ route('designer.design.take', ['design' => $design->id]) }}">
                                 @csrf
                                 <input type="hidden" name="status" value="in progress">
 
@@ -66,14 +66,14 @@
                             </form>
                         @elseif($design->status !== 'finished')
                         @can('update', $design)
-                            <form style="float:right" method="POST" action="/designs/{{$design->id}}">
+                            <form style="float:right" method="POST" action="{{ route('designer.design.finish', ['design' => $design->id]) }}">
                                 @csrf
-                                @method('PATCH')
+                                @method('PUT')
                                 <input type="hidden" name="status" value="finished">
 
                                 <button class="btn btn-success" type="submit">Finish !</button>
                             </form>
-                            <form style="float:left" method="POST" action="/designs/{{$design->id}}">
+                            <form style="float:left" method="POST" action="{{ route('designer.design.drop', ['design' => $design->id]) }}">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="status" value="open">

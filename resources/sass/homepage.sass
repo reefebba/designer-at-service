@@ -1,14 +1,22 @@
-*
-  padding: 0
-  margin: 0
+// Variables
+// @import 'variables'
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap'
 
 
 /** Opening **/
 
 .intro
   color: #fff
+  font-size: 1rem
 
+  *
+    font-size: 1rem
 
+*
+  padding: 0
+  margin: 0
 
 /** Layout **/
 .grid-container
@@ -36,7 +44,7 @@
 /** Styling **/
 .sidebar
   position: sticky
-  background-color: #005858
+  background-color: #9e58e0
   border-right: 1px solid rgb(53, 53, 53)
 
 
@@ -80,7 +88,7 @@
   border-bottom: none
   box-shadow: 1px 1px 1px #2b2b2b
   background: #ffffff
-  color: #005858
+  color: #7729c1
   border-radius: 10px
 
 
@@ -102,7 +110,7 @@ article
 
 
 article p
-  color: #005858
+  color: #6c6c6c
   font-weight: 600
 
 
@@ -115,9 +123,10 @@ article p
 
 .form-group
   margin-bottom: 40px
-  color: #2b2b2b
+  // color: #2b2b2b
   font-family: Ubuntu
-  color: #005858
+  color: #696969
+  font-size: 1rem
   padding: 10px
 
 
@@ -146,16 +155,16 @@ article p
   padding: 5px
   font-size: 1rem
   font-weight: 300
-  color: #005858
+  color: #404040
   box-sizing: border-box
   border: none
   border-bottom: 1px solid grey
 
 
 .form-group>[type="text"]:focus
-  color: #005858
+  color: #6c6c6c
   border: none
-  border-bottom: 2px solid #005858
+  border-bottom: 2px solid #6c6c6c
     /* transition: border 0.5s  */
 
 
@@ -167,22 +176,22 @@ article p
   box-sizing: border-box
   border-radius: 3px
   padding: 5px 10px
-  color: #005858
+  color: #6c6c6c
 
 
 .form-group>[type="radio"]
   margin-top: 0.2rem
-  color: #005858
+  color: #6c6c6c
 
 
 .form-group>textarea
-  color: #005858
+  color: #6c6c6c
 
 
 .form-group>[type="submit"]
   width: 50%
   color: #fffafa
-  background: #005858
+  background: #6c6c6c
   border-radius: 10px
   font-family: ubuntu
   border: none
@@ -195,37 +204,37 @@ article p
 
 
 .form-group>[type="tel"]
-  color: #005858
+  color: #6c6c6c
   border: none
-  border-bottom: 1px solid #005858
+  border-bottom: 1px solid #6c6c6c
 
 
 .form-group>[type="date"]
-  color: #005858
+  color: #6c6c6c
   border: none
-  border-bottom: 1px solid #005858
+  border-bottom: 1px solid #6c6c6c
 
 
 .form-group>[type="time"]
-  color: #005858
+  color: #6c6c6c
   border: none
-  border-bottom: 1px solid #005858
+  border-bottom: 1px solid #6c6c6c
 
 
 .form-group>[type="color"]
-  color: #005858
+  color: #6c6c6c
   border: none
   padding: 0 !important
   border-radius: 5px
 
 
 .form-group>[type="file"]
-  color: #005858
+  color: #6c6c6c
   border: none
 
 
 .navbar
-  background-color: #005858 !important
+  background-color: #9e58e0 !important
   padding-top: 0 !important
   padding-bottom: 0 !important
   box-shadow: 0 5px 7px rgba(51, 51, 51, .2)
@@ -240,7 +249,7 @@ article p
 
 
 .navbar ul li a:hover
-  color: #005858
+  color: #9e58e0
 
 
 .navbar ul li a::before
@@ -265,7 +274,7 @@ article p
   margin-bottom: 5px
 
 .navbar-toggler-icon
-  background-image: url('../images/toggler-menu.svg') !important
+  background-image: url(/images/toggler-menu.svg) !important
   transform: rotate(180deg)
 
 
