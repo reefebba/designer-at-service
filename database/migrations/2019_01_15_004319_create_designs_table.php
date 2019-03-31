@@ -15,7 +15,7 @@ class CreateDesignsTable extends Migration
     {
         Schema::create('designs', function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('uuid');
+            $table->uuid('uuid')->index();
             $table->unsignedInteger('designer_id')->nullable();
             $table->enum('status', ['open', 'in-progress', 'finished', 'failed'])->default('open')->index();
             $table->string('size');

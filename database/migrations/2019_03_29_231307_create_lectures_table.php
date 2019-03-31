@@ -15,7 +15,7 @@ class CreateLecturesTable extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('design_id');
+            $table->unsignedInteger('design_id')->nullable();
             $table->enum('type', [
                 'kajian rutin', 'kajian tematik', 'tablig akbar', 'safari dakwah'
             ]);
