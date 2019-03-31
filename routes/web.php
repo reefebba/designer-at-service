@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () 
 		Route::match(['post', 'put', 'patch'], '/design/{design}/drop', 'DesignController@updateDrop')->name('drop');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/finish', 'DesignController@updateFinish')->name('finish');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/fail', 'DesignController@updateFail')->name('fail');
+		Route::get('/design/{design}/download', 'DesignController@downloadImage')->name('download');
 	});
 });
 
@@ -43,6 +44,7 @@ Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager',
 	Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
 	Route::name('designer.')->group(function () {
 		Route::get('/designer', 'DesignerController@index')->name('index');
+		Route::patch('/designer/{designer}/promote', 'DesignerController@promoteAsManager')->name('promote');
 		Route::match(['put', 'patch'], '/designer/{designer}/ban', 'DesignerController@ban')->name('ban');
 		Route::match(['put', 'patch'], '/designer/{id}/restore', 'DesignerController@restore')->name('restore');
 		Route::delete('/designer/{id}', 'DesignerController@destroy')->name('destroy');

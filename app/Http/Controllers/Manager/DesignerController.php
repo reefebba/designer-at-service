@@ -30,15 +30,20 @@ class DesignerController extends Controller
         return view('manager.designer.index', compact('designers'));
     }
 
+    public function promoteAsManager(Designer $designer)
+    {
+        $designer->can = 'manage';
+        $designer->save();
+        
+        return redirect()->route('manager.designer.index');
+    }
     
     public function ban(Designer $designer)
     {
         $designer->delete();
 
         return redirect()->route('manager.designer.index');
-    }
-
-    
+    } 
 
     public function restore($id)
     {

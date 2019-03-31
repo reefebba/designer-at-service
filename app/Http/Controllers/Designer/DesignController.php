@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Designer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 use App\Models\Design;
 
@@ -113,6 +114,11 @@ class DesignController extends Controller
             'status' => $request->status
         ]);
         return redirect()->route('design.show', $design);
+    }
+
+    public function downloadImage(Design $design)
+    {
+        return Storage::download($design->image);
     }
 
     /**
