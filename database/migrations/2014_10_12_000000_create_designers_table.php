@@ -15,10 +15,11 @@ class CreateDesignersTable extends Migration
     {
         Schema::create('designers', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('can', ['design', 'manage'])->default('design');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone')->nullable()->unique();
-            $table->string('photo')->default(url('images/profile.png'));
+            $table->string('photo')->default(url('avatars/profile.png'));
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

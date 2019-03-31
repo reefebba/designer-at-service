@@ -11,8 +11,6 @@ class Designer extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    protected $dates = ['deleted_at'];
-
     /**
      * The attributes that are mass assignable.
      *

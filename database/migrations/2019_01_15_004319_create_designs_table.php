@@ -17,7 +17,7 @@ class CreateDesignsTable extends Migration
             $table->increments('id');
             $table->uuid('uuid');
             $table->unsignedInteger('designer_id')->nullable();
-            $table->enum('status', ['open', 'in progress', 'finished', 'failed'])->default('open')->index();
+            $table->enum('status', ['open', 'in-progress', 'finished', 'failed'])->default('open')->index();
             $table->string('size');
             $table->string('base_color')->default('terserah');
             $table->string('image')->nullable()->unique();
