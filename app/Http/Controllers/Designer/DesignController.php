@@ -35,18 +35,6 @@ class DesignController extends Controller
                break;
         endswitch;
 
-        // if (empty($request->status) || $request->status !== 'in-progress' || $request->status !== 'finished') {
-        //     $designs->where([['designer_id', $id], ['status', 'open']])->paginate(10);
-        // }
-
-        // if ($request->status === 'in-progress') {
-        //     $designs->where([['designer_id', $id], ['status', $request->status]])->simplePaginate(10);
-        // }
-
-        // if ($request->status === 'finished') {
-        //     $designs->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
-        // }
-
         return view('design.index', compact('designs'));
     }
 
