@@ -15,20 +15,18 @@ class DesignController extends Controller
      */
     public function index(Request $request)
     {
-        $designs = Design::with('lecture:lecturer,organizer,date');
-
         switch ($request->status) :
             case 'in-progress':
-                $designs->where('status', $request->status)->simplePaginate(10);
+                $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->simplePaginate(10);
                 break;
             case 'finished':
-                $designs->where('status', $request->status)->paginate(10);
+                $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->paginate(10);
                 break;
             case 'failed':
-                $designs->where('status', $request->status)->paginate(10);
+                $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->paginate(10);
                 break;
             default:
-               $designs->where('status', 'open')->paginate(10);
+               $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->paginate(10);
                break;
         endswitch;
 
