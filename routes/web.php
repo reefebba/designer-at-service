@@ -11,13 +11,14 @@
 |
 */
 
+
+# Auth
+Auth::routes();
+
 # Client
 Route::get('/', 'ClientController@index')->name('homepage');
 Route::post('/design', 'ClientController@store')->name('design.store');
 Route::get('/{design}', 'ClientController@show')->name('client.design.show');
-
-# Auth
-Auth::routes();
 
 # Designer
 Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () {
