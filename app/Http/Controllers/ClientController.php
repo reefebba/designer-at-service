@@ -28,6 +28,7 @@ class ClientController extends Controller
     public function store(DesignRequest $request)
     {
         $design = Design::create($request->only(['status', 'size', 'base_color', 'add_info']));
+        
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images');
@@ -37,7 +38,7 @@ class ClientController extends Controller
         $client = Client::create($request->only(['client_name', 'client_phone']));
         $lecture = Lecture::create($request->only(['type', 'audience', 'title', 'tag_line', 'lecturer', 'book', 'place', 'date', 'time', 'organizer', 'contact', 'donation', 'is_meal', 'is_streaming']));
 
-        return view('design.show'); 
+        return view('client.design.show', compact('design','client','lecture')); 
 
         // ->route('client.design.show', $design); 
     }
