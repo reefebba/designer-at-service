@@ -21,16 +21,16 @@ class DesignController extends Controller
 
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::with('lecture:id,lecturer,organizer,date')->where([['designer_id', $id], ['status', $request->status]])->simplePaginate(10);
+                $designs = Design::with('lecture')->where([['designer_id', $id], ['status', $request->status]])->simplePaginate(10);
                 break;
             case 'finished':
-                $designs = Design::with('lecture:id,lecturer,organizer,date')->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
+                $designs = Design::with('lecture')->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
                 break;
             case 'failed':
-                $designs = Design::with('lecture:id,lecturer,organizer,date')->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
+                $designs = Design::with('lecture')->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
                 break;
             default:
-               $designs = Design::with('lecture:id,lecturer,organizer,date')->where([['designer_id', $id], ['status', 'open']])->paginate(10);
+               $designs = Design::with('lecture')->where('status', 'open')->paginate(10);
                break;
         endswitch;
 
@@ -47,7 +47,7 @@ class DesignController extends Controller
     {
         $design->load(['designer:id,name', 'client', 'lecture']);
 
-        return view('design.show', compact('designs'));
+        return view('design.show', compact('design'));
     }
 
     /**
@@ -63,7 +63,7 @@ class DesignController extends Controller
         $request->status = 'in-progress';
 
         $design->update([
-            'user_id' => Auth::user()->id,
+            'designer_id' => Auth::user()->id,
             'status' => $request->status
         ]);
         return redirect()->route('design.show', $design);
@@ -75,7 +75,7 @@ class DesignController extends Controller
         $request->status = 'open';
 
         $design->update([
-            'user_id' => null,
+            'designer_id' => null,
             'status' => $request->status
         ]);
         return redirect()->route('design.show', $design);
