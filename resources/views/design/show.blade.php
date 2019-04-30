@@ -75,29 +75,31 @@
                     </div>
               </div>
 
+
               <div class="btn-condition">
                 @if($design->status == 'open')
                   <form method="POST" action="/design/{{$design->uuid}}/take">
                     @csrf
                     @method('PUT')
-                    <button class="m-2 btn btn-primary">Take</button>
+                    <button class="btn btn-primary">Take</button>
                   </form>
                 @endif
 
                 @if($design->status == 'in-progress')
                   <form method="POST" action="/design/{{$design->uuid}}/drop">
                     @csrf
-                  <button class="m-2 btn btn-warning">Drop</button>
+                  <button class="btn btn-warning">Drop</button>
                   </form>
                   <form method="POST" action="/design/{{$design->uuid}}/finish">
                     @csrf
-                    <button  class="m-2 btn btn-success">Finish</button>
+                    <button  class="btn btn-success">Finish</button>
                   </form>
                   <form method="POST" action="/design/{{$design->uuid}}/fail">
                     @csrf
-                    <button class="m-2 btn btn-danger">Fail</button>
+                    <button class="btn btn-danger">Fail</button>
                   </form>
-                </div>
+                @endif
+              </div>
 
             </div>
           </div>
