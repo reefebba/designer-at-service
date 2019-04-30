@@ -271,6 +271,11 @@ nav.primary-nav {
   box-shadow: 0 0 0 500px #12b99f;
 }
 
+.btn-condition {
+  display: flex;
+  padding: 20px;
+}
+
 .detail-order {
   position: absolute;
   top: 0;

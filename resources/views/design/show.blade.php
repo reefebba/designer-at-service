@@ -8,7 +8,7 @@
 @endsection
 
 @section('title')
-  
+  Design detail
 @endsection
 
 @section('contents')
@@ -22,7 +22,7 @@
     <div class="grid-container">
         <!-- Header -->
           @section('nav-title')
-            Design
+            Design detail
           @endsection
 
           @include('component.header')
@@ -75,33 +75,39 @@
                     </div>
               </div>
 
-              <div class=""></div>
-              @if($design->status == 'open')
-                <form method="POST" action="/design/{{$design->uuid}}/take">
-                  @csrf
-                  @method('PUT')
-                  <button class="btn btn-primary">Take</button>
-                </form>
-              @endif
 
-              @if($design->status == 'in-progress')
-                <form method="POST" action="/design/{{$design->uuid}}/drop">
-                  @csrf
-                <button class="btn btn-warning">Drop</button>
-                </form>
-                <form method="POST" action="/design/{{$design->uuid}}/finish">
-                  @csrf
-                  <button  class="btn btn-success">Finish</button>
-                </form>
-                <form method="POST" action="/design/{{$design->uuid}}/fail">
-                  @csrf
-                  <button class="btn btn-danger">Fail</button>
-                </form>
-              @endif
+              <div class="btn-condition">
+                @if($design->status == 'open')
+                  <form method="POST" action="/design/{{$design->uuid}}/take">
+                    @csrf
+                    @method('PUT')
+                    <button class="btn btn-primary">Take</button>
+                  </form>
+                @endif
+
+                @if($design->status == 'in-progress')
+                  <form method="POST" action="/design/{{$design->uuid}}/drop">
+                    @csrf
+                  <button class="btn btn-warning">Drop</button>
+                  </form>
+                  <form method="POST" action="/design/{{$design->uuid}}/finish">
+                    @csrf
+                    <button  class="btn btn-success">Finish</button>
+                  </form>
+                  <form method="POST" action="/design/{{$design->uuid}}/fail">
+                    @csrf
+                    <button class="btn btn-danger">Fail</button>
+                  </form>
+                @endif
+              </div>
 
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
 @endsection
 
 @section('scripts')
