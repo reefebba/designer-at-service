@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.layouts.masterclient')
 @section('title','Pondok Multimedia')
 
   {{-- Sidebar --}}
