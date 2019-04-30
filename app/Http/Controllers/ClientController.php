@@ -11,7 +11,7 @@ class ClientController extends Controller
 {
 	public function index()
 	{
-		return view('customer/homepage'); // HomePage
+		return view('homepage'); // HomePage
 	}
 
 	public function show(Design $design)
