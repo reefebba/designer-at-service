@@ -17,18 +17,20 @@ class DesignController extends Controller
     {
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->simplePaginate(10);
+                $designs = Design::where('status', $request->status)->simplePaginate(10);
                 break;
             case 'finished':
-                $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->paginate(10);
+                $designs = Design::where('status', $request->status)->paginate(10);
                 break;
             case 'failed':
-                $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->paginate(10);
+                $designs = Design::where('status', $request->status)->paginate(10);
                 break;
             default:
-               $designs = Design::with('lecture:id,lecturer,organizer,date')->where('status', $request->status)->paginate(10);
+               $designs = Design::where('status', $request->status)->paginate(10);
                break;
         endswitch;
+
+        // var_dump($designs->where('designs.status', $request->status)->paginate(1));
 
         return view('design.index', compact('designs'));
     }
@@ -40,4 +42,24 @@ class DesignController extends Controller
         ]);
         return redirect()->route('design.show', $design);
     }
+
+    // public function detailOrder(Request $request, $id)
+    // {
+    //     switch ($request->status) :
+    //         case 'in-progress':
+    //             $lecture = Design::with('lecture')->where('status', $request->status)->find($id);
+    //             break;
+    //         case 'finished':
+    //             $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
+    //             break;
+    //         case 'failed':
+    //             $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
+    //             break;
+    //         default:
+    //            $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
+    //            break;
+    //     endswitch;
+
+    //     return view('design.index', compact('lecture'));
+    // }
 }

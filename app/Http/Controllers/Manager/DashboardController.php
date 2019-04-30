@@ -32,4 +32,9 @@ class DashboardController extends Controller
 
         return view('manager.dashboard', compact('designs', 'designers'));
     }
+
+    public function profile()
+    {
+        return view('manager.profile.index');
+    }
 }

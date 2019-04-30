@@ -1,0 +1,375 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/*=== Tambahan css ===*/
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+hr {
+  background-color: #fff;
+  margin-left: 0;
+}
+
+.sidebar {
+  background-color: #12b99f;
+  width: 15%;
+  box-shadow: 5px 0 5px rgba(0,0,0, .3);
+  position: sticky;
+  height: 100vh;
+}
+
+.multimedia-logo {
+  width: 100%;
+  text-align: center;
+}
+
+.nav-item {
+  display: flex!important;
+}
+
+.nav-link  {
+  width: 100%;
+  color: #fff;
+  transition: .3s;
+  transition-timing-function: ease-in-out;
+}
+
+.nav-link:hover {
+    color: #037362;
+}
+
+.nav-active {
+  padding: 3px;
+  background-color: #037362;
+  box-shadow: 2px 0 4px rgba(0,0,0, .2);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.btn-navOpen {
+  border: 1px solid #fff!important;
+  box-shadow: none!important;
+}
+
+.btn-navOpen i{
+  color: #fff;
+}
+
+.d-none {
+  display: none;
+}
+
+.grid-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+/* ========== */
+
+
+
+/*=== Yang harus dihapus ===*/
+
+/* .primary-nav a {
+    color: #037362;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin: none;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: .5s;
+    transition-timing-function: ease-in-out;
+}
+
+a:hover {
+    color: #fffafa;
+    background-color: #037362;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    box-shadow: 0px 5px 5px rgba(0,0,0, .3);
+}
+
+nav.primary-nav {
+    text-align: center;
+    margin: none;
+    padding: 20px;
+    }
+
+.word-top img {
+    border-radius: 50%;
+}*/
+
+
+/* ========== */
+.word-top {
+    background-color: #037362;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #fffafa;
+    margin: none;
+    /* padding diganti jadi 10px */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 3px 5px 5px rgba(0,0,0, .3);
+}
+
+.order-box {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-right: none;
+    border-left: none;
+    padding: 12px;
+    height: auto;
+    /* border-radius: 12px; */
+}
+.order-box a {
+  text-decoration: none !important; 
+}
+
+.order {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 12px;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #037362; /* dari border menjadi background-color */
+    height: 250px;
+    width: 210px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 5px rgba(0,0,0, .5);
+    transition: .5s;
+}
+.total {
+  width: 900px;
+}
+
+.order:hover {
+  transform: scale(1.1);
+}
+
+.order h4 {
+    padding: 10px;/*  padding jadi 10px */
+    font-weight: 500;
+    margin: none;
+    color: #fff; /* color jadi #fff */
+    border-radius: 5px;
+    text-shadow: 1px 3px 5px rgba(0,0,0, .5) /* tambah text shadow */
+}
+
+.order h2 {
+  color: #fff;
+  margin-top: 45px;
+  font-size: 45px;
+  font-weight: 900;
+  text-shadow: 1px 3px 5px rgba(0,0,0, .5) /* tambah text shadow */
+}
+
+.desaigner {
+  width: 400px;
+}
+
+.order-id {
+  color: #fff;
+}
+
+.card {
+  transition: .5s;
+  box-shadow: 0 4px 5px #ccc;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 6px 6px #ccc;
+}
+
+.card-img {
+  height: 200px!important;
+  background-color: #333;
+}
+
+.btn-desainer {
+  background-color: #037362!important;
+  color: #fff!important;
+}
+
+.order-card {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  height: 250px;
+  background-color: #037362;
+  overflow: hidden;
+  transition: .5s;
+  box-shadow: 0 4px 5px #ccc;
+}
+
+.order-card:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 6px 5px #ccc;
+}
+
+.detailorder {
+  background-color: #037362;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px #ccc;
+}
+
+.btn-detail-order, .toggle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+  outline: none!important;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.link-detail-order {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  color: #fff;
+  transition: .5s;
+  z-index: 11;
+  opacity: 0;
+}
+
+.link-detail-order:hover {
+  color: #fff;
+}
+
+.btn-detail-order {
+  opacity: 0;
+}
+
+.toggle {
+  pointer-events: none;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: .5s;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  box-shadow: 0 0 0 0px #12b99f;
+}
+
+.btn-detail-order:checked ~ .toggle{
+  box-shadow: 0 0 0 500px #12b99f;
+}
+
+.btn-condition {
+  display: flex;
+  padding: 20px;
+}
+
+.detail-order {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 11;
+  pointer-events: none;
+  transition: .5s;
+  opacity: 0;
+  color: #fff;
+}
+
+.btn-detail-order:checked ~ .detail-order,
+.btn-detail-order:checked ~ .link-detail-order {
+  opacity: 1;
+  transition-delay: .5s;
+
+}
+
+.admin-profile {
+  color: #fff;
+  transition: .5s;
+}
+
+.admin-profile:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+
+.admin-profile-form {
+  width: 100%;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.admin-profile-form .inputBox label {
+  color: #037362;
+}
+
+.inputBox {
+  margin: 15px auto;
+}
+
+.inputBox label {
+  text-align: left;
+  color: #757575;
+  font-size: 17px;
+}
+
+.inputBox input, .inputBox textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #757575;
+  background-color: transparent;
+  transition: .5s;
+  -ms-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  -moz-transition: .5s;
+}
+
+.inputBox input:focus, .inputBox textarea:focus {
+  border-bottom: 1px solid #12b99f;
+}
+
+.inputBox p {
+  color: rgb(223, 143, 36);
+  font-size: 13px;
+}
+
+.inputBox a {
+  color: #333!important;
+  font-size: 13px;
+}
+
+.inputBox a:hover {
+  color: rgb(20, 136, 203)!important;
+  text-decoration: underline!important;
+  cursor: pointer;
+}
+
+.add-designer {
+  font-weight: bold;
+  color: #12b99f;
+  text-shadow: 0 2px  3px #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

@@ -28,7 +28,6 @@ class ClientController extends Controller
     public function store(DesignRequest $request)
     {
         $design = Design::create($request->only(['status', 'size', 'base_color', 'add_info']));
-        
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images');
