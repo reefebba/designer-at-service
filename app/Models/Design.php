@@ -13,6 +13,10 @@ class Design extends Model
     	'id', 'uuid', 'created_at', 'updated_at'
     ];
 
+    protected $with = [
+        'designer', 'client', 'lecture'
+    ];
+
     /**
      * Get the route key for the model.
      *
