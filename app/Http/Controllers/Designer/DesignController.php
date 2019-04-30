@@ -21,16 +21,16 @@ class DesignController extends Controller
 
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::with('lecture')->where([['designer_id', $id], ['status', $request->status]])->simplePaginate(10);
+                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->simplePaginate(10);
                 break;
             case 'finished':
-                $designs = Design::with('lecture')->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
+                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->paginate(10);
                 break;
             case 'failed':
-                $designs = Design::with('lecture')->where([['designer_id', $id], ['status', $request->status]])->paginate(10);
+                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->paginate(10);
                 break;
             default:
-               $designs = Design::with('lecture')->where('status', 'open')->paginate(10);
+               $designs = Design::where('status', 'open')->paginate(10);
                break;
         endswitch;
 
@@ -45,8 +45,6 @@ class DesignController extends Controller
      */
     public function show(Design $design)
     {
-        $design->load(['designer:id,name', 'client', 'lecture']);
-
         return view('design.show', compact('design'));
     }
 

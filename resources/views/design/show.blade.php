@@ -98,32 +98,12 @@
                   <button class="btn btn-danger">Fail</button>
                 </form>
               @endif
-
-
-
-
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </div>
+    </div>
+  </div>
 
 @endsection
 
