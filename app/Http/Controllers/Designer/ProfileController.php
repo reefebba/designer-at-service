@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Designer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Designer;
 
 class ProfileController extends Controller
 {

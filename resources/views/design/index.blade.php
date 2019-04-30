@@ -8,7 +8,7 @@
 @endsection
 
 @section('title')
-  
+  Design
 @endsection
 
 @section('contents')
@@ -28,7 +28,13 @@
         <!-- End header -->
 
         @if (count($designs) === 0)
-          Tidak ada Project!
+          <div class="container mt-5">
+            <div class="alert alert-success" role="alert">
+              <p class="alert-heading">Notice!</p>
+              <hr>
+              <h4>Tidak ada Tugas!</h4>
+            </div>
+          </div>
         @endif
 
         <!-- Open -->

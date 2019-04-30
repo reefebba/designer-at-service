@@ -22,9 +22,10 @@ Route::get('/{design}', 'ClientController@show')->name('client.design.show');
 
 # Designer
 Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () {
+
 	Route::get('/designer/dashboard', 'DashboardController@dashboard')->name('dashboard');
 	Route::name('profile.')->group(function () {
-		Route::get('/profile', 'ProfileController@show')->name('show');
+		Route::get('/designer/profile', 'ProfileController@show')->name('show');
 		Route::get('/profile/edit', 'ProfileController@edit')->name('edit');
 		Route::match(['post', 'put', 'patch'], '/profile', 'ProfileController@update')->name('update');
 	});

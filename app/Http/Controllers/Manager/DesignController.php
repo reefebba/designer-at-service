@@ -43,23 +43,23 @@ class DesignController extends Controller
         return redirect()->route('design.show', $design);
     }
 
-    public function detailOrder(Request $request, $id)
-    {
-        switch ($request->status) :
-            case 'in-progress':
-                $lecture = Design::with('lecture')->where('status', $request->status)->find($id);
-                break;
-            case 'finished':
-                $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
-                break;
-            case 'failed':
-                $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
-                break;
-            default:
-               $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
-               break;
-        endswitch;
+    // public function detailOrder(Request $request, $id)
+    // {
+    //     switch ($request->status) :
+    //         case 'in-progress':
+    //             $lecture = Design::with('lecture')->where('status', $request->status)->find($id);
+    //             break;
+    //         case 'finished':
+    //             $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
+    //             break;
+    //         case 'failed':
+    //             $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
+    //             break;
+    //         default:
+    //            $lecture = Design::with('lecture')->where('status', $request->status)->paginate(10);
+    //            break;
+    //     endswitch;
 
-        return view('design.index', compact('lecture'));
-    }
+    //     return view('design.index', compact('lecture'));
+    // }
 }
