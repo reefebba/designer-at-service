@@ -38,30 +38,65 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
+                
                 <form class="admin-profile-form mx-auto align-items-center shadow" method="POST" action="{{route('profile.update')}}">
+                  @csrf
                   <div class="inputBox">
                     <label class="d-block">Nama</label>
                     <input value="{{ $designer->name }}" class="profilName" type="text" name="name">
+
+                    @if ($errors->has('name'))
+                    <div class="alert alert-danger">
+                      {{ $errors->first('name') }}
+                    </div>
+                    @endif
                   </div>
 
                   <div class="inputBox">
                     <label class="d-block">Divisi</label>
-                    <input value="Designer" class="profilDivisi" type="text" name="division">
+                    <input value="Designer" class="profilDivisi" type="text">
                   </div>
 
                   <div class="inputBox">
                     <label class="d-block">Email</label>
                     <input value="{{ $designer->email }}" class="profilEmail" type="email" name="email">
+
+                    @if ($errors->has('email'))
+                    <div class="alert alert-danger">
+                      {{ $errors->first('email') }}
+                    </div>
+                    @endif
+                  </div>
+
+                  <div class="inputBox">
+                    <label for="photo">Photo</label>
+                    <input type="file" class="form-control-file" id="photo" name="photo">
+
+                    @if ($errors->has('photo'))
+                    <div class="alert alert-danger">
+                      {{ $errors->first('photo') }}
+                    </div>
+                    @endif
                   </div>
 
                   <div class="inputBox">
                     <label class="d-block">Nomor Telepon</label>
-                    <input value="{{ $designer->phone }}" class="profilPhone" type="tel" name="phone_number">
+                    <input value="{{ $designer->phone }}" class="profilPhone" type="tel" name="phone">
+
+                    @if ($errors->has('phone'))
+                    <div class="alert alert-danger">
+                      {{ $errors->first('phone') }}
+                    </div>
+                    @endif
                   </div>
 
                   <div class="text-right">
                     <button type="submit" class="btn btn-primary">Ubah</button>
                   </div>
+                  
+                    <div class="text-center">
+                    <a href="{{ route('logout') }}" class="btn btn-outline-danger text-center" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                    </div>
                 </form>
               </div>
             </div>

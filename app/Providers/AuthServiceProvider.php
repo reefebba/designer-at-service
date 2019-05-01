@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
         // $this->registerPolicies();
         $this->registerPolicies($gate);
 
-        $gate->define('design', function($designer){
+        $gate->define('designer', function($designer){
             return $designer->can === 'design';
         });
 

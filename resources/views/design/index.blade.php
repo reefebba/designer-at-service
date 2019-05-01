@@ -27,15 +27,22 @@
           @include('component.header')
         <!-- End header -->
 
+        
         @if (count($designs) === 0)
           <div class="container mt-5">
             <div class="alert alert-success" role="alert">
               <p class="alert-heading">Notice!</p>
               <hr>
-              <h4>Tidak ada Tugas!</h4>
+              @can('manage')
+                <h4>There is no task!</h4>
+              @endcan
+              @can('designer')
+                <h4>Tidak ada Tugas!</h4>
+              @endcan
             </div>
           </div>
         @endif
+        
 
         <!-- Open -->
         <div class="container mt-5 mx-auto">
@@ -46,7 +53,7 @@
                   <input class="btn-detail-order" type="checkbox" name="" >
                   <div class="toggle"><i class="fas fa-info"></i></div>
                   <a href="/designer/design/{{$design->uuid}}" class="link-detail-order mx-3">Detail</a>
-                <div class="short-desc mx-3 mt-3">
+                  <div class="short-desc mx-3 mt-3">
                   <h5 class="order-id">Jenis Kajian : {{$design->lecture->type}} </h5>
                   <h5 class="order-id">Judul Kajian : {{$design->lecture->title}}</h5>
                   <h5 class="order-id">Pemateri : {{$design->lecture->lecturer}}</h5>

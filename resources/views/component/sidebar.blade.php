@@ -9,10 +9,11 @@
       <!--  -->
 
       <!-- nav dipindah -->
+      @can('designer')
       <nav class="mt-2">
         <ul class="nav priimary-nav flex-column">
           <li class="nav-item">
-            <span class=""></span> <a class="nav-link" href="{{route('dashboard')}}">Beranda Designer</a>
+            <span class="nav-active"></span> <a class="nav-link" href="{{route('dashboard')}}">Beranda Designer</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('design.index')}}?status=open">Open Design</a>
@@ -26,9 +27,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('design.index')}}?status=failed">Failed Design</a>
           </li>
-          @can('manage')
+        </ul>
+      </nav>
+      @endcan
+          
+      @can('manage')
+      <nav class="mt-2">
+        <ul class="nav priimary-nav flex-column">
           <li class="nav-item">
-            <span class=""></span> <a class="nav-link" href="/manager/dashboard">Beranda Manager</a>
+            <span class="nav-active"></span>
+            <a class="nav-link" href="/manager/dashboard">Beranda Manager</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('manager.design.index')}}?status=open">Open Design</a>
@@ -43,17 +51,20 @@
             <a class="nav-link" href="{{route('manager.design.index')}}?status=failed">Failed Design</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add_designer.html">Add Desainer</a>
+            <a class="nav-link" href="{{route('manager.designer.add')}}">Add Desainer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('manager.designer.index')}}?state=total">Total Designer</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('manager.designer.index')}}">Active Designer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/manager/designer">Banned Designer</a>
+            <a class="nav-link" href="{{route('manager.designer.index')}}?state=banned">Banned Designer</a>
           </li>
-          @endcan
         </ul>
       </nav>
+      @endcan
       <!-- akhir nav -->
 
     <!-- akhir sidebar -->

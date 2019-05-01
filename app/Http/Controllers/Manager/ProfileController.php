@@ -32,8 +32,9 @@ class ProfileController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|min:3',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits_between:10,14',
+            'email' => 'required|email|unique:designers,email,'.$designer->id,
+            // 'password' => 'nullable',
+            'phone' => 'required|numeric|digits_between:10,14|unique:designers,phone,'.$designer->id,
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
@@ -46,9 +47,7 @@ class ProfileController extends Controller
             }
             $designer->update(['photo' => $path]);
         }
-
         $designer->update($request->except('photo'));
-
-        return redirect()->route('profile.show');
+        return redirect()->route('manager.designer.index', $designer);
     }
 }

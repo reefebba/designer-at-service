@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Lecture::class, 9)->create();
         $manager = new Designer;
         $manager->name = 'PM';
-        $manager->email = 'p@m.com';
+        $manager->email = 'admin@gmail.com';
         $manager->email_verified_at = now();
-        $manager->password = 'MultimedProgram';
+        $manager->password = 'akromleo';
         $manager->can = 'manage';
         $manager->save();
     }
