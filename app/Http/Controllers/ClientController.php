@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\DesignRequest;
 use App\Models\Design;
 
@@ -16,6 +17,15 @@ class ClientController extends Controller
 	{
 		return view('client.design.show', compact('design'));
 	}
+
+    public function checkStatus(Request $request)
+    {
+        $design = Design::where('uuid', $request->uuid)->first();
+        if (!$design) {
+            abort(404, 'Maaf, Kami tidak menemukan design poster yang cocok dengan Code Anda.');
+        }
+        return redirect()->route('client.design.show', $design);
+    }
 
 	 /**
      * Store a newly created design's order in storage.

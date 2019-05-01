@@ -18,6 +18,7 @@ Auth::routes();
 # Client
 Route::get('/', 'ClientController@index')->name('homepage');
 Route::post('/design', 'ClientController@store')->name('design.store');
+Route::post('/design/check', 'ClientController@checkStatus')->name('client.design.check');
 Route::get('/design/{design}', 'ClientController@show')->name('client.design.show');
 
 # Designer
