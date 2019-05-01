@@ -28,7 +28,7 @@ class DesignRequest extends FormRequest
     {
         return [
             'user_id' => 'nullable',
-            'status' => 'required|alpha',
+            'status' => 'sometimes|alpha',
             'client_name' => ['required', 'regex:/^(?!\s)[a-zA-Z|\s|\.]+$/'],
             'client_phone' => 'required|numeric|digits_between:10,14',
             'size' => 'required',

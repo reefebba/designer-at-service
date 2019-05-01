@@ -25,7 +25,7 @@ class ProfileController extends Controller
 
     public function edit(Designer $designer)
     {
-        return view('manager.profile.edit', compact('designer'));
+        return view('manager.profile.edit', compact('designer')); //to be removed. unused
     }
 
     public function update(Request $request, Designer $designer)

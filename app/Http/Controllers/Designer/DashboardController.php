@@ -19,10 +19,11 @@ class DashboardController extends Controller
         $id = Auth::user()->id;
 
         $designs = [
-            'open' => Design::where([['designer_id', $id], ['status', 'open']])->count(),
+            'open' => Design::where('status', 'open')->count(),
             'inProgress' => Design::where([['designer_id', $id], ['status', 'in-progress']])->count(),
             'finished' => Design::where([['designer_id', $id], ['status', 'finished']])->count(),
-            'failed' => Design::where([['designer_id', $id], ['status', 'failed']])->count()
+            'failed' => Design::where([['designer_id', $id], ['status', 'failed']])->count(),
+            'total' => Design::where([['designer_id', $id], ['status', 'total']])->count(),
         ];
 
         return view('dashboard', compact('designs'));
