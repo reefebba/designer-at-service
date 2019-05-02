@@ -34,7 +34,7 @@ class DesignController extends Controller
                break;
         endswitch;
 
-        return view('design.index', compact('designs'));
+        return view('designer.design.index', compact('designs'));
     }
 
     /**
@@ -45,7 +45,7 @@ class DesignController extends Controller
      */
     public function show(Design $design)
     {
-        return view('design.show', compact('design'));
+        return view('designer.design.show', compact('design'));
     }
 
     /**

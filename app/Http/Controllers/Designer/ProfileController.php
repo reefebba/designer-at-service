@@ -14,10 +14,10 @@ class ProfileController extends Controller
         $id = Auth::user()->id;
         $designer = Designer::withCount('designs')->findOrFail($id);
 
-        return view('profile.show', compact('designer'));
+        return view('designer.profile.show', compact('designer'));
     }
 
-    public function edit()
+    public function edit() //to be removed. unused
     {
         $designer = Auth::user();
 

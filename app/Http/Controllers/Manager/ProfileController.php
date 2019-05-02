@@ -5,9 +5,19 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Designer;
+use Auth;
 
 class ProfileController extends Controller
 {
+
+    public function myProfile()
+    {
+        $id = Auth::user()->id;
+        $designer = Designer::withCount('designs')->findOrFail($id);
+
+        return view('manager.profile.myProfile', compact('designer'));
+    }
+
 	public function showActive(Designer $designer)
     {
         $designer->load('designs');

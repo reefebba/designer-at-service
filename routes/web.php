@@ -18,7 +18,8 @@ Auth::routes();
 # Client
 Route::get('/', 'ClientController@index')->name('homepage');
 Route::post('/design', 'ClientController@store')->name('design.store');
-Route::get('/{design}', 'ClientController@show')->name('client.design.show');
+Route::post('/design/check', 'ClientController@checkStatus')->name('client.design.check');
+Route::get('/design/{design}', 'ClientController@show')->name('client.design.show');
 
 # Designer
 Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () {
@@ -26,9 +27,10 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () 
 	Route::get('/logout', 'Auth\LoginController@logout');
 
 	Route::get('/designer/dashboard', 'DashboardController@dashboard')->name('dashboard');
+
 	Route::name('profile.')->group(function () {
 		Route::get('/designer/profile', 'ProfileController@show')->name('show');
-		Route::get('/profile/edit', 'ProfileController@edit')->name('edit');
+		Route::get('/profile/edit', 'ProfileController@edit')->name('edit'); //to be removed. unused
 		Route::match(['post', 'put', 'patch'], '/profile', 'ProfileController@update')->name('update');
 	});
 	Route::name('design.')->group(function () {
@@ -45,9 +47,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () 
 # Manager
 Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager', 
 	'prefix' => 'manager'], function () {
+
 	Route::name('manager.')->group(function () {
 		Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
-
 	});
 
 	Route::name('manager.designer.')->group(function () {
@@ -60,6 +62,7 @@ Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager',
 		Route::delete('/designer/{id}', 'DesignerController@destroy')->name('destroy');
 	});
 	Route::name('manager.profile.')->group(function () {
+		Route::get('myProfile', 'ProfileController@myProfile')->name('myProfile');
 		Route::get('/profile/{designer}/active', 'ProfileController@showActive')->name('show');
 		Route::get('/profile/{id}/banned', 'ProfileController@showBanned')->name('show.banned');
 		Route::get('/profile/{designer}/edit', 'ProfileController@edit')->name('edit'); //to be removed. unused

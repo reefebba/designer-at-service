@@ -13,79 +13,50 @@ Beranda
 <!-- tambah wrapper -->
 <div class="wrapper">
   <!-- Sidebar -->
-  @include('manager.component.sidebar')
+  @include('designer.component.sidebar')
   <!-- End Sidebar -->
   <div class="grid-container">
-    
     <!-- Header -->
     @section('nav-title')
     Beranda
     @endsection
 
-    @include('manager.component.header')
+    @include('designer.component.header')
     <!-- End header -->
-
+    
     <div class="row-middle page-body">
       <div class="page-content">
         <article>
           <div class="order-box">
-            <a href="{{route('manager.design.index')}}?status=open">
+            
+            <a href="{{route('design.index')}}?status=open">
               <div class="order">
                 <h4>Open</h4>
                 <h2>{{$designs['open']}}</h2>
               </div>
             </a>
-            <a href="{{route('manager.design.index')}}?status=in-progress">
+
+            <a href="{{route('design.index')}}?status=in-progress">
               <div class="order">
                 <h4>In progress</h4>
                 <h2>{{$designs['inProgress']}}</h2>
               </div>
             </a>
-            <a href="{{route('manager.design.index')}}?status=finished">
+
+            <a href="{{route('design.index')}}?status=finished">
               <div class="order">
                 <h4>Finished</h4>
                 <h2>{{$designs['finished']}}</h2>
               </div>
             </a>
-            <a href="{{route('manager.design.index')}}?status=failed">
+
+            <a href="{{route('design.index')}}?status=failed">
               <div class="order">
                 <h4>Failed</h4>
                 <h2>{{$designs['failed']}}</h2>
               </div>
             </a>
-            <a href="#">
-              <div class="order total">
-                <h4>Total</h4>
-                <h2>{{$designs['total']}}</h2>
-              </div>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-    <hr>
-    <div class="row-middle page-body">
-      <div class="page-content">
-        <article>
-          <div class="order-box">
-            <a href="{{route('manager.designer.index')}}">
-              <div class="order desaigner">
-                <h4>Desaigner Active</h4>
-                <h2>{{$designers['active']}}</h2>
-              </div>
-            </a>
-            <a href="{{route('manager.designer.index')}}?state=banned">
-              <div class="order desaigner">
-                <h4>Desaigner banned</h4>
-                <h2>{{$designers['banned']}}</h2>
-              </div>
-            </a>
-            <a href="#">
-              <div class="order total">
-                <h4>Total</h4>
-                <h2>{{$designers['total']}}</h2>
-              </div>
-            </a>
+
           </div>
         </article>
       </div>
@@ -95,6 +66,7 @@ Beranda
 </div>
 <!--  -->
 @endsection
+
 
 @section('scripts')
 <script type="text/javascript" src="{{ asset('/js/nav-responsive.js') }}"></script>
