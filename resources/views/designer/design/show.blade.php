@@ -92,7 +92,7 @@ Design detail
                 @endif
                 <p>: {{$design->size}} </p>
                 <p>: {{$design->base_color}} </p>
-                @if($design->add_info == 'Nullable')
+                @if($design->add_info == '')
                 <p>: Tidak ada pesan apa-apa </p>
                 @else
                 <p>: {{$design->add_info}}</p>

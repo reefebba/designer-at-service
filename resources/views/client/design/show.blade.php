@@ -9,7 +9,7 @@
 @include('client.component.headerclient')
 
 	<div class="row justify-content-center">
-		<div class="col-5 col-md-6">
+		<div class="col-md-6">
 
 			<div class="form-group">
 				
