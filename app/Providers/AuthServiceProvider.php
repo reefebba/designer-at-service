@@ -23,7 +23,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate)
     {
-        // $this->registerPolicies();
         $this->registerPolicies($gate);
 
         $gate->define('design', function($designer){

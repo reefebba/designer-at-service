@@ -33,11 +33,6 @@ class ProfileController extends Controller
         return view('manager.profile.show', compact('designer'));
     }
 
-    public function edit(Designer $designer)
-    {
-        return view('manager.profile.edit', compact('designer')); //to be removed. unused
-    }
-
     public function update(Request $request, Designer $designer)
     {
         $this->validate($request, [

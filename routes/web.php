@@ -30,7 +30,10 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () 
 
 	Route::name('profile.')->group(function () {
 		Route::get('/designer/profile', 'ProfileController@show')->name('show');
+<<<<<<< HEAD
 		Route::get('/profile/edit', 'ProfileController@edit')->name('edit'); //to be removed. unused
+=======
+>>>>>>> be7a2608a6dc3e58a1ce78cd5aa5f8504cca3565
 		Route::match(['post', 'put', 'patch'], '/profile', 'ProfileController@update')->name('update');
 	});
 	Route::name('design.')->group(function () {
@@ -65,7 +68,10 @@ Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager',
 		Route::get('/profile', 'ProfileController@managerProfile')->name('show');
 		Route::get('/profile/{designer}/active', 'ProfileController@showActive')->name('show.active');
 		Route::get('/profile/{id}/banned', 'ProfileController@showBanned')->name('show.banned');
+<<<<<<< HEAD
 		Route::get('/profile/{designer}/edit', 'ProfileController@edit')->name('edit'); //to be removed. unused
+=======
+>>>>>>> be7a2608a6dc3e58a1ce78cd5aa5f8504cca3565
 		Route::match(['post', 'put', 'patch'], '/profile/{designer}', 'ProfileController@update')->name('update');
 	});
 	Route::name('manager.design.')->group(function () {

@@ -73,7 +73,7 @@ Design detail
                 <p>: {{$design->lecture->lecturer}} </p>
                 <p>: {{$design->lecture->tag_line}} </p>
                 <p>: {{$design->lecture->place}} </p>
-                <p>: {{$design->lecture->date->format('d - m - Y')}} </p>
+                <p>: {{$design->lecture->date}} </p>
                 <p>: {{$design->lecture->time}} </p>
                 <p>: {{$design->lecture->organizer}} </p>
                 <p>: {{$design->client->client_name}} </p>

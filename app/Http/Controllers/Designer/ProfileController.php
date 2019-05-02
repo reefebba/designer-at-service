@@ -17,13 +17,6 @@ class ProfileController extends Controller
         return view('designer.profile.show', compact('designer'));
     }
 
-    public function edit() //to be removed. unused
-    {
-        $designer = Auth::user();
-
-        return view('profile.edit', compact('designer'));
-    }
-
     public function update(Request $request)
     {
         $designer = Auth::user();
