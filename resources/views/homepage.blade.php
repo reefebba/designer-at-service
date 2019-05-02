@@ -18,5 +18,4 @@
   
   {{-- Form: Submit Design --}}
      @include('client.component.formsubmit') 
-
 @endsection

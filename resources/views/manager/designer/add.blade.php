@@ -38,7 +38,7 @@ Designer add
             <h3 class="add-designer">Daftarkan Desainer Baru</h3>
           </div>
 
-          <form class="admin-profile-form mx-auto align-items-center shadow mb-4" method="POST" action="{{route('manager.designer.create')}}">
+          <form class="admin-profile-form mx-auto align-items-center shadow mb-4" method="POST" action="{{route('manager.designer.store')}}">
             @csrf
             <div class="inputBox">
               <label class="d-block">Nama</label>

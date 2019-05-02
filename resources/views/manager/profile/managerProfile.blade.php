@@ -63,6 +63,17 @@ My Profile
                 </div>
 
                 <div class="inputBox">
+                  <label class="d-block">Password</label>
+                  <input value="{{ $designer->password }}" class="profilpassword" type="text" name="password">
+
+                  @if ($errors->has('password'))
+                  <div class="alert alert-danger">
+                    {{ $errors->first('password') }}
+                  </div>
+                  @endif
+                </div>
+
+                <div class="inputBox">
                   <label for="photo">Photo</label>
                   <input type="file" class="form-control-file" id="photo" name="photo">
 

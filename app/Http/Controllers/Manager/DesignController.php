@@ -33,11 +33,16 @@ class DesignController extends Controller
         return view('manager.design.index', compact('designs'));
     }
 
+    public function show(Design $design)
+    {
+        return view('manager.design.show', compact('design'));
+    }
+
     public function updateFail(Request $request, Design $design)
     {
         $design->update([
             'status' => 'failed'
         ]);
-        return redirect()->route('design.show', $design);
+        return redirect()->route('manager.dashboard');
     }
 }

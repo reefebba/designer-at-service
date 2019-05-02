@@ -92,7 +92,7 @@ Design detail
                 @endif
                 <p>: {{$design->size}} </p>
                 <p>: {{$design->base_color}} </p>
-                @if($design->add_info == 'Nullable')
+                @if($design->add_info == '')
                 <p>: Tidak ada pesan apa-apa </p>
                 @else
                 <p>: {{$design->add_info}}</p>
@@ -105,24 +105,9 @@ Design detail
 
             <div class="btn-condition">
               @if($design->status == 'open')
-              <form method="POST" action="/design/{{$design->uuid}}/take">
+              <form method="POST" action="{{route('manager.design.fail', $design)}}">
                 @csrf
                 @method('PUT')
-                <button class="m-2 btn btn-primary">Take</button>
-              </form>
-              @endif
-
-              @if($design->status == 'in-progress')
-              <form method="POST" action="/design/{{$design->uuid}}/drop">
-                @csrf
-                <button class="m-2 btn btn-warning">Drop</button>
-              </form>
-              <form method="POST" action="/design/{{$design->uuid}}/finish">
-                @csrf
-                <button  class="m-2 btn btn-success">Finish</button>
-              </form>
-              <form method="POST" action="/design/{{$design->uuid}}/fail">
-                @csrf
                 <button class="m-2 btn btn-danger">Fail</button>
               </form>
               @endif

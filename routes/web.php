@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () 
 	});
 	Route::name('design.')->group(function () {
 		Route::get('/designer/design', 'DesignController@index')->name('index');
-		Route::get('/designer/design/{design}', 'DesignController@show')->name('show')->middleware('web');
+		Route::get('/designer/design/{design}', 'DesignController@show')->name('show');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/take', 'DesignController@updateTake')->name('take');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/drop', 'DesignController@updateDrop')->name('drop');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/finish', 'DesignController@updateFinish')->name('finish');
@@ -68,6 +68,8 @@ Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager',
 	});
 	Route::name('manager.design.')->group(function () {
 		Route::get('/design', 'DesignController@index')->name('index');
+		Route::get('/designer/design/{design}', 'DesignController@show')->name('show');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/fail', 'DesignController@updateFail')->name('fail');
 	});
 });
+

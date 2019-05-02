@@ -64,7 +64,7 @@ class DesignController extends Controller
             'designer_id' => Auth::user()->id,
             'status' => $request->status
         ]);
-        return redirect()->route('design.show', $design);
+        return redirect()->route('dashboard');
     }
 
     public function updateDrop(Request $request, Design $design)
@@ -76,7 +76,7 @@ class DesignController extends Controller
             'designer_id' => null,
             'status' => $request->status
         ]);
-        return redirect()->route('design.show', $design);
+        return redirect()->route('dashboard');
     }
 
     public function updateFinish(Request $request, Design $design)
@@ -87,7 +87,7 @@ class DesignController extends Controller
         $design->update([
             'status' => $request->status
         ]);
-        return redirect()->route('design.show', $design);
+        return redirect()->route('dashboard');
     }
 
     public function updateFail(Request $request, Design $design)
@@ -98,7 +98,7 @@ class DesignController extends Controller
         $design->update([
             'status' => $request->status
         ]);
-        return redirect()->route('design.show', $design);
+        return redirect()->route('dashboard');
     }
 
     public function downloadImage(Design $design)
