@@ -8,7 +8,7 @@
 @endsection
 
 @section('title')
-{{ $designer->name }} Profile
+My Profile
 @endsection
 
 @section('contents')
@@ -21,9 +21,9 @@
   <div class="grid-container">
     <!-- Header -->
     @section('nav-title')
-    {{ $designer->name }} Profile
+      My Profile
     @endsection
-    
+
     @include('manager.component.header')
     <!-- End header -->
 
@@ -32,7 +32,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              
+
               <form class="admin-profile-form mx-auto align-items-center shadow" method="POST" action="{{route('profile.update')}}">
                 @csrf
                 <div class="inputBox">
@@ -87,7 +87,7 @@
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary">Ubah</button>
                 </div>
-                
+
                 <div class="text-center">
                   <a href="{{ route('logout') }}" class="btn btn-outline-danger text-center" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                 </div>

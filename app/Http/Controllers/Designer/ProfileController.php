@@ -14,10 +14,10 @@ class ProfileController extends Controller
         $id = Auth::user()->id;
         $designer = Designer::withCount('designs')->findOrFail($id);
 
-        return view('profile.show', compact('designer'));
+        return view('designer.profile.show', compact('designer'));
     }
 
-    public function edit()
+    public function edit() //to be removed. unused
     {
         $designer = Auth::user();
 
@@ -30,9 +30,9 @@ class ProfileController extends Controller
 
         $this->validate($request, [
             'name' => 'required|min:3',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits_between:10,14',
-            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+            'email' => 'required|email|unique:designers,email,'.$designer->id,
+            'phone' => 'required|numeric|digits_between:10,14|unique:designers,phone,'.$designer->id,
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($request->hasFile('photo')) {

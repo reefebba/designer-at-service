@@ -24,10 +24,13 @@ Route::get('/design/{design}', 'ClientController@show')->name('client.design.sho
 # Designer
 Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () {
 
+	Route::get('/logout', 'Auth\LoginController@logout');
+
 	Route::get('/designer/dashboard', 'DashboardController@dashboard')->name('dashboard');
+
 	Route::name('profile.')->group(function () {
 		Route::get('/designer/profile', 'ProfileController@show')->name('show');
-		Route::get('/profile/edit', 'ProfileController@edit')->name('edit');
+		Route::get('/profile/edit', 'ProfileController@edit')->name('edit'); //to be removed. unused
 		Route::match(['post', 'put', 'patch'], '/profile', 'ProfileController@update')->name('update');
 	});
 	Route::name('design.')->group(function () {
@@ -44,29 +47,30 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Designer'], function () 
 # Manager
 Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager', 
 	'prefix' => 'manager'], function () {
+
 	Route::name('manager.')->group(function () {
 		Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
-
 	});
 
 	Route::name('manager.designer.')->group(function () {
 		Route::get('/designer', 'DesignerController@index')->name('index');
+		Route::get('/designer/add', 'DesignerController@add')->name('add');
+		Route::post('/designer/add', 'DesignerController@store')->name('store');
 		Route::patch('/designer/{designer}/promote', 'DesignerController@promoteAsManager')->name('promote');
-		Route::match(['put', 'patch'], '/designer/{designer}/ban', 'DesignerController@ban')->name('ban');
+		Route::match(['post', 'put', 'patch'], '/designer/{designer}/ban', 'DesignerController@ban')->name('ban');
 		Route::match(['put', 'patch'], '/designer/{id}/restore', 'DesignerController@restore')->name('restore');
 		Route::delete('/designer/{id}', 'DesignerController@destroy')->name('destroy');
 	});
 	Route::name('manager.profile.')->group(function () {
-		Route::get('/profile/{designer}', 'ProfileController@showActive')->name('show');
+		Route::get('/profile', 'ProfileController@managerProfile')->name('show');
+		Route::get('/profile/{designer}/active', 'ProfileController@showActive')->name('show.active');
 		Route::get('/profile/{id}/banned', 'ProfileController@showBanned')->name('show.banned');
-		Route::get('/profile/{designer}/edit', 'ProfileController@edit')->name('edit');
+		Route::get('/profile/{designer}/edit', 'ProfileController@edit')->name('edit'); //to be removed. unused
 		Route::match(['post', 'put', 'patch'], '/profile/{designer}', 'ProfileController@update')->name('update');
 	});
 	Route::name('manager.design.')->group(function () {
 		Route::get('/design', 'DesignController@index')->name('index');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/fail', 'DesignController@updateFail')->name('fail');
-
-
-		Route::get('/design/detail/{id}', 'DesignController@detailOrder')->name('detailorder');
 	});
 });
+
