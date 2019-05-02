@@ -5,6 +5,7 @@
 @section('content')
   
   {{-- Sidebar --}}
+
     @include('component.client.sidebarclient')
   {{-- End Sidebar --}}
   

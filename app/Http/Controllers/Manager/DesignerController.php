@@ -13,21 +13,39 @@ class DesignerController extends Controller
 
     public function index(Request $request)
     {
-        $designers = Designer::withCount('designs');
+        // $designers = Designer::withCount('designs');
 
         if (empty($request->state) || $request->state !== 'total' || $request->state !== 'banned') {
-            $designers->paginate(10);
+            $designers = Designer::withCount('designs')->paginate(10);
         }
 
-        if ($request->state === 'total') {
-            $designers->withTrashed()->paginate(10);
+        if ($request->state == 'total') {
+            $designers = Designer::withCount('designs')->withTrashed()->paginate(10);
         }
 
         if ($request->state === 'banned') {
-            $designers->onlyTrashed()->simplePaginate(10);
+            $designers = Designer::withCount('designs')->onlyTrashed()->simplePaginate(10);
         }
 
         return view('manager.designer.index', compact('designers'));
+    }
+
+    public function add()
+    {
+        return view('manager.designer.add');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'password' => 'required|min:5',
+            'email' => 'required|email|unique:designers',
+            'phone' => 'required|numeric|digits_between:10,14|unique:designers'
+        ]);
+
+        Designer::create($request->all());
+        return redirect()->route('manager.designer.index');
     }
 
     public function promoteAsManager(Designer $designer)

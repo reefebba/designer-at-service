@@ -26,6 +26,6 @@ class DashboardController extends Controller
             'total' => Design::where([['designer_id', $id], ['status', 'total']])->count(),
         ];
 
-        return view('dashboard', compact('designs'));
+        return view('designer.dashboard', compact('designs'));
     }  
 }

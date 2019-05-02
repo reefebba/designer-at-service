@@ -5,9 +5,19 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Designer;
+use Auth;
 
 class ProfileController extends Controller
 {
+
+    public function managerProfile()
+    {
+        $id = Auth::user()->id;
+        $designer = Designer::withCount('designs')->findOrFail($id);
+
+        return view('manager.profile.managerProfile', compact('designer'));
+    }
+
 	public function showActive(Designer $designer)
     {
         $designer->load('designs');
@@ -32,8 +42,9 @@ class ProfileController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|min:3',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits_between:10,14',
+            'email' => 'required|email|unique:designers,email,'.$designer->id,
+            // 'password' => 'nullable',
+            'phone' => 'required|numeric|digits_between:10,14|unique:designers,phone,'.$designer->id,
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
@@ -46,9 +57,7 @@ class ProfileController extends Controller
             }
             $designer->update(['photo' => $path]);
         }
-
         $designer->update($request->except('photo'));
-
-        return redirect()->route('profile.show');
+        return redirect()->route('manager.designer.index', $designer);
     }
 }

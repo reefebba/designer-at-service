@@ -30,7 +30,7 @@ class DesignController extends Controller
                break;
         endswitch;
 
-        return view('design.index', compact('designs'));
+        return view('manager.design.index', compact('designs'));
     }
 
     public function updateFail(Request $request, Design $design)
