@@ -4,9 +4,9 @@
 
 @section('content')
 
-@include('component.client.sidebarclient')
+@include('client.component.sidebarclient')
 
-@include('component.client.headerclient')
+@include('client.component.headerclient')
 
 	<div class="row justify-content-center">
 		<div class="col-5 col-md-6">
@@ -78,7 +78,7 @@
 				    </p>
 				   </div>
 					<br>
-					<form action="/">
+					<form action="{{ route('homepage') }}">
 					    <div class="form-group text-center">
 					       <button class="btn btn-primary" type="submit">Ok, Kembali!</button> 
 					    </div>

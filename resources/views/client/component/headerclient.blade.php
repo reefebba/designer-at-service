@@ -22,6 +22,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="https://kakakasuhindonesia.org/">Kakak Asuh Indonesia</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
               </ul>
             </div>
           </nav>

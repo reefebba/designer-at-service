@@ -5,15 +5,15 @@
 
   {{-- ///// Client ///// --}}
 
-   @include('component.client.formclient')
+   @include('client.component.formclient')
 
   {{-- ///// Kajian ///// --}}
 
-  @include('component.client.formkajian')
+  @include('client.component.formkajian')
 
   {{-- ////// Desgin //////  --}}
 
-  @include('component.client.formdesign')
+  @include('client.component.formdesign')
       
      <div class="form-group text-center">
             <button class="btn btn-primary" type="submit">Ok, Submit!</button>  

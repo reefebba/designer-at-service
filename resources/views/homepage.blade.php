@@ -6,17 +6,17 @@
   
   {{-- Sidebar --}}
 
-    @include('component.client.sidebarclient')
+    @include('client.component.sidebarclient')
   {{-- End Sidebar --}}
   
   {{-- Navbar --}}
-    @include('component.client.headerclient')
+    @include('client.component.headerclient')
 
   {{-- Form: Check Status, Redirecting --}}
-    @include('component.client.formcheck')  
+    @include('client.component.formcheck')  
   {{-- End Form: Check Status, Redirecting --}}
   
   {{-- Form: Submit Design --}}
-     @include('component.client.formsubmit') 
+     @include('client.component.formsubmit') 
 
 @endsection

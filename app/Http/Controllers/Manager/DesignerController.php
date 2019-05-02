@@ -13,8 +13,6 @@ class DesignerController extends Controller
 
     public function index(Request $request)
     {
-        // $designers = Designer::withCount('designs');
-
         if (empty($request->state) || $request->state !== 'total' || $request->state !== 'banned') {
             $designers = Designer::withCount('designs')->paginate(10);
         }
