@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Design;
-use App\Models\Designer;
 
 class DesignController extends Controller
 {
@@ -40,23 +39,5 @@ class DesignController extends Controller
             'status' => 'failed'
         ]);
         return redirect()->route('design.show', $design);
-    }
-
-    public function add()
-    {
-        return view('manager.designer.add');
-    }
-
-    public function create(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required|min:3',
-            'password' => 'required|min:5',
-            'email' => 'required|email|unique:designers',
-            'phone' => 'required|numeric|digits_between:10,14|unique:designers'
-        ]);
-
-        Designer::create($request->all());
-        return redirect()->route('manager.designer.index');
     }
 }

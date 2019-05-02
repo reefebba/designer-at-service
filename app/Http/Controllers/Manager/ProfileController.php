@@ -10,12 +10,12 @@ use Auth;
 class ProfileController extends Controller
 {
 
-    public function myProfile()
+    public function managerProfile()
     {
         $id = Auth::user()->id;
         $designer = Designer::withCount('designs')->findOrFail($id);
 
-        return view('manager.profile.myProfile', compact('designer'));
+        return view('manager.profile.managerProfile', compact('designer'));
     }
 
 	public function showActive(Designer $designer)

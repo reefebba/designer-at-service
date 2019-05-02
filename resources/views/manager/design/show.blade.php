@@ -97,7 +97,7 @@ Design detail
                 @else
                 <p>: {{$design->add_info}}</p>
                 @endif
-                : <img src="{{url($design->image)}}" width="180" class="shadow">
+                : <img src="{{url('storage/'.$design->image)}}" width="180" class="shadow">
                 <br>
                 <a href="{{route('design.download', $design)}}" class="mt-3 ml-5 btn btn-primary">Download</a>
               </div>

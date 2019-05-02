@@ -13,7 +13,7 @@
       <ul class="nav priimary-nav flex-column">
         <li class="nav-item">
           <span class="nav-active"></span>
-          <a class="nav-link" href="/manager/dashboard">Beranda Manager</a>
+          <a class="nav-link" href="{{route('manager.dashboard')}}">Beranda Manager</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('manager.design.index')}}?status=open">Open Design</a>

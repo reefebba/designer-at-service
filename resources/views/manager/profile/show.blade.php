@@ -65,6 +65,17 @@
                 </div>
 
                 <div class="inputBox">
+                  <label for="photo">Photo</label>
+                  <input type="file" class="form-control-file" id="photo" name="photo">
+
+                  @if ($errors->has('photo'))
+                  <div class="alert alert-danger">
+                    {{ $errors->first('photo') }}
+                  </div>
+                  @endif
+                </div>
+                
+                <div class="inputBox">
                   <label class="d-block">Nomor Telepon</label>
                   <input value="{{ $designer->phone }}" class="profilPhone" type="tel" name="phone">
 
@@ -75,19 +86,9 @@
                   @endif
                 </div>
 
-                <div class="inputBox">
-                  <label for="photo">Photo</label>
-                  <input type="file" class="form-control-file" id="photo" name="photo">
-
-                  @if ($errors->has('photo'))
-                  <div class="alert alert-danger">
-                    {{ $errors->first('photo') }}
-                  </div>
-                  @endif
-                </div>
-                <hr>
-
+                @if($designer->can != 'manage')
                 <button type="submit" class="m-1 btn btn-success">Edit</button>
+                @endif
               </form>
 
               @can('manage')

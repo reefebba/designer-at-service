@@ -150,8 +150,13 @@ nav.primary-nav {
     box-shadow: 3px 3px 5px rgba(0,0,0, .5);
     transition: .5s;
 }
+
 .total {
-  width: 900px;
+  width: 350px;
+}
+
+.desaigner {
+  width: 300px;
 }
 
 .order:hover {
@@ -173,10 +178,6 @@ nav.primary-nav {
   font-size: 45px;
   font-weight: 900;
   text-shadow: 1px 3px 5px rgba(0,0,0, .5) /* tambah text shadow */
-}
-
-.desaigner {
-  width: 400px;
 }
 
 .order-id {
@@ -375,6 +376,7 @@ nav.primary-nav {
 .text-right {
   display: flex;
 }
+
 
 .text-left {
   display: flex;

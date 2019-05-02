@@ -30,6 +30,24 @@ class DesignerController extends Controller
         return view('manager.designer.index', compact('designers'));
     }
 
+    public function add()
+    {
+        return view('manager.designer.add');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'password' => 'required|min:5',
+            'email' => 'required|email|unique:designers',
+            'phone' => 'required|numeric|digits_between:10,14|unique:designers'
+        ]);
+
+        Designer::create($request->all());
+        return redirect()->route('manager.designer.index');
+    }
+
     public function promoteAsManager(Designer $designer)
     {
         $designer->can = 'manage';

@@ -64,6 +64,8 @@ Beranda
       </div>
     </div>
     <hr>
+
+
     <div class="row-middle page-body">
       <div class="page-content">
         <article>
