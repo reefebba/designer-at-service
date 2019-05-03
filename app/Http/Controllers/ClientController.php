@@ -24,7 +24,7 @@ class ClientController extends Controller
     {
         $design = Design::where('uuid', $request->uuid)->first();
         if (!$design) {
-            abort(404, 'Maaf, Kami tidak menemukan design poster yang cocok dengan Code Anda.');
+            abort(404);
         }
         return redirect()->route('client.design.show', $design);
     }

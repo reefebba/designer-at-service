@@ -21,7 +21,7 @@ Order show
 					<p class="card-text"><label for="client_name"><i class="fas fa-user"><span class="ml-2" style="font-family:ubuntu;"> Nama Antum : {{ $design->client->client_name }}</span></i></label></p>
 					<p class="card-text"><label for="uuid"><i class="fas fa-bookmark"><span class="ml-2" style="font-family:ubuntu;"> Code Unik: {{ $design->uuid }}</span></i></label></p>
 					<div class="alert alert-success" role="alert">
-						Code tersebut harus disimpan untuk setiap anda ingin mengecek status design anda
+						Code unik bisa dimasukan pada form check status di homepage. Harap disimpan.
 					</div>
 				</div>
 			</div>
