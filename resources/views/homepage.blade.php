@@ -9,7 +9,6 @@
   @include('client.component.sidebarclient')
   @include('client.component.headerclient')
 
-
   @include('client.component.formcheck')
   @include('client.component.formsubmit') 
 
