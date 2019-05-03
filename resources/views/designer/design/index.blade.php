@@ -68,6 +68,7 @@ Design
         @endforeach
 
       </div>
+      {{$designs->links()}}
     </div>
 
     

@@ -64,11 +64,12 @@ Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager',
 		Route::get('/profile', 'ProfileController@managerProfile')->name('show');
 		Route::get('/profile/{designer}/active', 'ProfileController@showActive')->name('show.active');
 		Route::get('/profile/{id}/banned', 'ProfileController@showBanned')->name('show.banned');
+		Route::get('/profile/{designer}/design', 'ProfileController@showDesign')->name('show.design');
 		Route::match(['post', 'put', 'patch'], '/profile/{designer}', 'ProfileController@update')->name('update');
 	});
 	Route::name('manager.design.')->group(function () {
 		Route::get('/design', 'DesignController@index')->name('index');
-		Route::get('/designer/design/{design}', 'DesignController@show')->name('show');
+		Route::get('/design/{design}', 'DesignController@show')->name('show');
 		Route::match(['post', 'put', 'patch'], '/design/{design}/fail', 'DesignController@updateFail')->name('fail');
 	});
 });

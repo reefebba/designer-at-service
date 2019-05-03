@@ -11,8 +11,10 @@
       <!-- @can('manage')
           <a class="admin-profile" href="/manager/profile"><i class="fas fa-user-circle fa-4x"></i></a>
           @endcan -->
-          <a class="admin-profile mr-3" href="{{route('manager.profile.show')}}"><i class="fas fa-user-circle fa-4x"></i></a>
-
+          <!-- <a class="admin-profile mr-3" href="{{route('manager.profile.show')}}"><i class="fas fa-user-circle fa-4x"></i></a> -->
+          <a href="{{route('manager.profile.show')}}">
+            <img class="profile" src="{{url('storage/'.Auth()->user()->photo)}}">
+          </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 

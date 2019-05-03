@@ -34,7 +34,7 @@
           <div class="row ml-5 mr-5 mt-2">
             <div class="col-md-12 admin-profile-form mx-auto align-items-center shadow">
 
-              <form method="POST" action="{{route('manager.profile.update', $designer)}}">
+              <form method="POST" action="{{route('manager.profile.update', $designer)}}" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="inputBox">
@@ -129,35 +129,6 @@
                 @endif
               </div>
               @endcan
-
-
-              @foreach($designer->designs as $design)
-              <h2 class="text-center mt-1">Total design</h2>
-              <div class="col-md-4 mb-5 mt-3">
-                <div class="order-card mx-auto">
-                  <input class="btn-detail-order" type="checkbox" name="" >
-                  <div class="toggle"><i class="fas fa-info"></i></div>
-                  <a href="/designer/design/{{$design->uuid}}" class="link-detail-order mx-3">Detail</a>
-                  <div class="short-desc mx-3 mt-3">
-                    <h5 class="order-id">Jenis Kajian : {{$design->lecture->type}} </h5>
-                    <h5 class="order-id">Judul Kajian : {{$design->lecture->title}}</h5>
-                    <h5 class="order-id">Pemateri : {{$design->lecture->lecturer}}</h5>
-                    @if($design->status == 'open')
-                    <h5 class="order-id">Tagline : {{$design->lecture->tag_line}}</h5>
-                    @endif
-                    @if($design->status != 'open')
-                    <hr>
-                    <h5 class="order-id">Designer : {{$design->designer->name}}</h5>
-                    @endif
-                  </div>
-                  <div class="detail-order mt-2 mx-3">
-                    <p>Tempat : {{$design->lecture->place}}</p>
-                    <p>Tanggal : {{$design->lecture->date}}</p>
-                    <p>Waktu : {{$design->lecture->time}}</p>
-                  </div>
-                </div>
-              </div>
-              @endforeach
 
             </div>
           </div>

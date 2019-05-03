@@ -33,7 +33,7 @@ My Profile
           <div class="row">
             <div class="col-md-12">
 
-              <form class="admin-profile-form mx-auto align-items-center shadow" method="POST" action="{{route('profile.update')}}">
+              <form class="admin-profile-form mx-auto align-items-center shadow" method="POST" action="{{route('profile.update')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="inputBox">
                   <label class="d-block">Nama</label>

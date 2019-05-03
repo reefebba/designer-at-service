@@ -5,6 +5,12 @@ body {
 }
 
 /*=== Tambahan css ===*/
+ .profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
 
 .wrapper {
   display: flex;

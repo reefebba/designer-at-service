@@ -17,11 +17,15 @@ class ProfileController extends Controller
 
         return view('manager.profile.managerProfile', compact('designer'));
     }
+    public function showDesign(Designer $designer)
+    {
+        $designs = $designer->designs()->paginate(5);
+        
+        return view('manager.profile.design', compact('designs'));
+    }
 
 	public function showActive(Designer $designer)
     {
-        $designer->load('designs');
-
         return view('manager.profile.show', compact('designer'));
     }
 
@@ -45,10 +49,10 @@ class ProfileController extends Controller
 
         if ($request->hasFile('photo')) {
             $fileName = substr(strrchr($designer->photo, "/"), 1);
-            if (empty($designer->photo) || $fileName !== 'profile.png') {
-                $path = $request->file('photo')->store('avatars');
+            if ($fileName !== 'profile.png') {
+                $path = $request->file('photo')->storeAs('avatars');
             } else {
-                $path = $request->file('photo')->storeAs('avatars', $fileName);
+                $path = $request->file('photo')->storeAs('avatars', $fileName.$designer->id);
             }
             $designer->update(['photo' => $path]);
         }

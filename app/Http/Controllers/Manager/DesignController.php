@@ -17,7 +17,7 @@ class DesignController extends Controller
     {
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::where('status', $request->status)->simplePaginate(10);
+                $designs = Design::where('status', $request->status)->simplePaginate(5);
                 break;
             case 'finished':
                 $designs = Design::where('status', $request->status)->paginate(10);

@@ -44,7 +44,7 @@ Designer
         @foreach($designers as $designer)
         <div class="col-md-4 mb-5">
           <div class="card mx-auto" style="width: 18rem;">
-            <img src="{{ asset('/images/avatar.png') }}" class="card-img" alt="gambar">
+            <img src="{{ url('storage/'.$designer->photo) }}" class="card-img" alt="gambar">
             <div class="card-body">
               <h5 class="card-title">{{$designer->name}}</h5>
               <p class="card-text">{{$designer->email}}</p>
@@ -53,6 +53,7 @@ Designer
               <div class="text-left">
                 @if($designer->deleted_at == '')
                 <a href="{{route('manager.profile.show.active', $designer)}}" class="m-1 btn btn-desainer">Detail</a>
+                <a href="{{route('manager.profile.show.design', $designer)}}" class="m-1 btn btn-warning">Project</a>
                 @else
                 <form method="GET" action="{{route('manager.profile.show.banned', $designer)}}">
                   <button type="submit" class="m-1 btn btn-desainer">Detail</button>
