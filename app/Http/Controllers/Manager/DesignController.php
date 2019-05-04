@@ -17,16 +17,16 @@ class DesignController extends Controller
     {
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('lectures.date', 'desc')->simplePaginate(8)->withPath('design?status='.$request->status);
+                $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->simplePaginate(8)->withPath('design?status='.$request->status);
                 break;
             case 'finished':
-                $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+                $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
                 break;
             case 'failed':
-                $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+                $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
                 break;
             default:
-               $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+               $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
                break;
         endswitch;
 
