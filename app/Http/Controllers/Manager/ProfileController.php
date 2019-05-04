@@ -17,11 +17,15 @@ class ProfileController extends Controller
 
         return view('manager.profile.managerProfile', compact('designer'));
     }
+    public function showDesign(Designer $designer)
+    {
+        $designs = $designer->designs()->paginate(5);
+        
+        return view('manager.profile.design', compact('designs'));
+    }
 
 	public function showActive(Designer $designer)
     {
-        $designer->load('designs');
-
         return view('manager.profile.show', compact('designer'));
     }
 

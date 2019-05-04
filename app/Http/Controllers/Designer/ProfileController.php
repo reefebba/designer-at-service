@@ -39,6 +39,6 @@ class ProfileController extends Controller
 
         $designer->update($request->except('photo'));
 
-        return redirect()->route('profile.show');
+        return redirect()->route('dashboard');
     }
 }

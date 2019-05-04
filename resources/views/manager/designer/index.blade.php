@@ -53,6 +53,7 @@ Designer
               <div class="text-left">
                 @if($designer->deleted_at == '')
                 <a href="{{route('manager.profile.show.active', $designer)}}" class="m-1 btn btn-desainer">Detail</a>
+                <a href="{{route('manager.profile.show.design', $designer)}}" class="m-1 btn btn-warning">Project</a>
                 @else
                 <form method="GET" action="{{route('manager.profile.show.banned', $designer)}}">
                   <button type="submit" class="m-1 btn btn-desainer">Detail</button>

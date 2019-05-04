@@ -21,7 +21,7 @@ Order show
 					<p class="card-text"><label for="client_name"><i class="fas fa-user"><span class="ml-2" style="font-family:ubuntu;"> Nama Antum : {{ $design->client->client_name }}</span></i></label></p>
 					<p class="card-text"><label for="uuid"><i class="fas fa-bookmark"><span class="ml-2" style="font-family:ubuntu;"> Code Unik: {{ $design->uuid }}</span></i></label></p>
 					<div class="alert alert-success" role="alert">
-						Code unik bisa dimasukan pada form check status di homepage. Harap disimpan.
+						Code Unik tersebut bisa dimasukan pada form check status di homepage. Harap disimpan.
 					</div>
 				</div>
 			</div>
@@ -117,9 +117,9 @@ Order show
 								<span class="ml-2" style="font-family:ubuntu;">
 									Dikerjakan oleh : 
 									@if($design->designer->designer_id != '')
-									{{ $design->designer->name }}
+										Design Antum belum dikerjakan
 									@else
-									Design Antum belum dikerjakan
+										{{ $design->designer->name }}
 									@endif
 								</span>
 							</i>
@@ -152,9 +152,9 @@ Order show
 								<span class="ml-2" style="font-family:ubuntu;">
 									Info Tambahan : 
 									@if($design->add_info != '')
-									{{ $design->add_info }}
+										{{ $design->add_info }}
 									@else
-									Antum tidak mengirimkan pesan apa-apa
+										Antum tidak mengirimkan pesan apa-apa
 									@endif
 								</span>
 							</i>
@@ -171,6 +171,7 @@ Order show
 							</label>
 						@if($design->image != '')
 						<br>
+
 						<img class="card-img-top" src="{{ $design->image }}" width="200">
 						@else
 							<span class="ml-2" style="font-family:ubuntu;"><b>Antum tidak mengirimkan gambar</b></span>

@@ -14,15 +14,15 @@ class DesignerController extends Controller
     public function index(Request $request)
     {
         if (empty($request->state) || $request->state !== 'total' || $request->state !== 'banned') {
-            $designers = Designer::withCount('designs')->paginate(10);
+            $designers = Designer::withCount('designs')->paginate(12);
         }
 
         if ($request->state == 'total') {
-            $designers = Designer::withCount('designs')->withTrashed()->paginate(10);
+            $designers = Designer::withCount('designs')->withTrashed()->paginate(12);
         }
 
         if ($request->state === 'banned') {
-            $designers = Designer::withCount('designs')->onlyTrashed()->simplePaginate(10);
+            $designers = Designer::withCount('designs')->onlyTrashed()->simplePaginate(12);
         }
 
         return view('manager.designer.index', compact('designers'));

@@ -24,7 +24,7 @@ class ClientController extends Controller
     {
         $design = Design::where('uuid', $request->uuid)->first();
         if (!$design) {
-            abort(404);
+            return view('client.design.error');
         }
         return redirect()->route('client.design.show', $design);
     }
