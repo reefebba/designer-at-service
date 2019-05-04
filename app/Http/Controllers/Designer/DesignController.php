@@ -21,16 +21,16 @@ class DesignController extends Controller
 
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->simplePaginate(10);
+                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->simplePaginate(8)->withPath('design?status='.$request->status);
                 break;
             case 'finished':
-                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(10);
+                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
                 break;
             case 'failed':
-                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(10);
+                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
                 break;
             default:
-               $designs = Design::where('status', 'open')->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(10);
+               $designs = Design::where('status', 'open')->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
                break;
         endswitch;
 
