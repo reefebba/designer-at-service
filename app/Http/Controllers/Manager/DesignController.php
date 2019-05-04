@@ -17,16 +17,16 @@ class DesignController extends Controller
     {
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::where('status', $request->status)->simplePaginate(5);
+                $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->simplePaginate(5);
                 break;
             case 'finished':
-                $designs = Design::where('status', $request->status)->paginate(10);
+                $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(10);
                 break;
             case 'failed':
-                $designs = Design::where('status', $request->status)->paginate(10);
+                $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(10);
                 break;
             default:
-               $designs = Design::where('status', $request->status)->paginate(10);
+               $designs = Design::where('status', $request->status)->join('lectures', 'lectures.design_id', '=', 'designs.id')->orderBy('date', 'desc')->paginate(10);
                break;
         endswitch;
 

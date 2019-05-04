@@ -9,6 +9,18 @@
   color: #fff;
 }
 
+.error {
+  margin-top: 45px;
+}
+
+.wavefooter, .waveheader {
+  margin-left: 30px;
+  margin-top: 18px;
+}
+
+.waveheader {
+  margin-top: 0;
+}
 
 /** Layout **/
 .grid-container {
@@ -290,5 +302,10 @@ article p {
 
     article {
       padding: 20px 25px!important;
+    }
+
+    .error {
+      margin-top: 20px;
+      text-align: center!important;
     }
 }

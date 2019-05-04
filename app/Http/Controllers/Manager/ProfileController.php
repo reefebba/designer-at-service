@@ -48,15 +48,16 @@ class ProfileController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            $fileName = substr(strrchr($designer->photo, "/"), 1);
-            if ($fileName !== 'profile.png') {
-                $path = $request->file('photo')->storeAs('avatars');
-            } else {
-                $path = $request->file('photo')->storeAs('avatars', $fileName.$designer->id);
-            }
+            $fileName = 'profile';
+            $ext = $request->file('photo')->getClientOriginalExtension();
+            $store = $request->file('photo')->storeAs('avatars', $fileName.$designer->id.'.'.$ext);
+            $path = url('storage/'.$store);
+            
             $designer->update(['photo' => $path]);
         }
+
         $designer->update($request->except('photo'));
+
         return redirect()->route('manager.designer.index', $designer);
     }
 }

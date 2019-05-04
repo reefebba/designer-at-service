@@ -69,11 +69,7 @@ Route::group(['middleware' => ['auth', 'manager'], 'namespace' => 'Manager',
 	});
 	Route::name('manager.design.')->group(function () {
 		Route::get('/design', 'DesignController@index')->name('index');
-<<<<<<< HEAD
 		Route::get('/design/{design}', 'DesignController@show')->name('show');
-=======
-		Route::get('/designer/design/{design}', 'DesignController@show')->name('show');
->>>>>>> 5c6406e96e8ed2064c57238563f03299c54b2433
 		Route::match(['post', 'put', 'patch'], '/design/{design}/fail', 'DesignController@updateFail')->name('fail');
 	});
 });

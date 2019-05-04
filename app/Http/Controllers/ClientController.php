@@ -24,7 +24,7 @@ class ClientController extends Controller
     {
         $design = Design::where('uuid', $request->uuid)->first();
         if (!$design) {
-            abort(404);
+            return view('client.design.error');
         }
         return redirect()->route('client.design.show', $design);
     }
@@ -41,7 +41,9 @@ class ClientController extends Controller
         $design = Design::create($request->only(['status', 'size', 'base_color', 'add_info']));
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('images');
+            $store = $request->file('image')->store('images');
+            $path = url('storage/'.$store);
+            
             $design->update(['image' => $path]);
         }
 

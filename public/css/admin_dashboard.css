@@ -201,8 +201,9 @@ nav.primary-nav {
 }
 
 .card-img {
-  height: 200px!important;
-  background-color: #333;
+  height: 286px!important;
+  width: 286px!important;
+  background-color: #000;
 }
 
 .btn-desainer {

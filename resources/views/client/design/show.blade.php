@@ -117,9 +117,9 @@ Order show
 								<span class="ml-2" style="font-family:ubuntu;">
 									Dikerjakan oleh : 
 									@if($design->designer->designer_id != '')
-									{{ $design->designer->name }}
+										Design Antum belum dikerjakan
 									@else
-									Design Antum belum dikerjakan
+										{{ $design->designer->name }}
 									@endif
 								</span>
 							</i>
@@ -152,9 +152,9 @@ Order show
 								<span class="ml-2" style="font-family:ubuntu;">
 									Info Tambahan : 
 									@if($design->add_info != '')
-									{{ $design->add_info }}
+										{{ $design->add_info }}
 									@else
-									Antum tidak mengirimkan pesan apa-apa
+										Antum tidak mengirimkan pesan apa-apa
 									@endif
 								</span>
 							</i>
@@ -171,7 +171,8 @@ Order show
 							</label>
 						@if($design->image != '')
 						<br>
-						<img class="card-img-top" src="{{ url('storage/'.$design->image) }}" width="200">
+
+						<img class="card-img-top" src="{{ $design->image }}" width="200">
 						@else
 							<span class="ml-2" style="font-family:ubuntu;"><b>Antum tidak mengirimkan gambar</b></span>
 						@endif
