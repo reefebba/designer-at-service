@@ -19,7 +19,7 @@ class CreateDesignersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone')->nullable()->unique();
-            $table->string('photo')->default(url('avatars/profile.png'));
+            $table->string('photo')->default(url('storage/avatars/profile.png'));
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

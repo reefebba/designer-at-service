@@ -44,7 +44,7 @@ Designer
         @foreach($designers as $designer)
         <div class="col-md-4 mb-5">
           <div class="card mx-auto" style="width: 18rem;">
-            <img src="{{ asset('/images/avatar.png') }}" class="card-img" alt="gambar">
+            <img src="{{ $designer->photo }}" class="card-img" alt="gambar">
             <div class="card-body">
               <h5 class="card-title">{{$designer->name}}</h5>
               <p class="card-text">{{$designer->email}}</p>

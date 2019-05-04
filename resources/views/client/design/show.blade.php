@@ -171,7 +171,7 @@ Order show
 							</label>
 						@if($design->image != '')
 						<br>
-						<img class="card-img-top" src="{{ url('storage/'.$design->image) }}" width="200">
+						<img class="card-img-top" src="{{ $design->image }}" width="200">
 						@else
 							<span class="ml-2" style="font-family:ubuntu;"><b>Antum tidak mengirimkan gambar</b></span>
 						@endif
