@@ -75,7 +75,7 @@
   </div>
   <div class="form-group">
     <label for="date"><i class="fas fa-calendar"><span class="ml-2" style="font-family:ubuntu;"> Tanggal kajian?</span></i></label>
-    <input autocomplete="off" type="date" name="date" id="date" value="{{ old('date') }}" >
+    <input placeholder="tahun-bulan-tanggal" style="cursor:pointer;"  autocomplete="off" type="text" name="date" id="date" value="{{ old('date') }}" >
     @if ($errors->has('date'))
     <div class="alert alert-danger">
       <p style = 'text-align:center'>{{ $errors->first('date') }}</p>
@@ -131,7 +131,7 @@
       <label class="custom-control-label" for="customRadioInline5">Ya, disediakan</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-      <input autocomplete="off" type="radio" id="customRadioInline6" name="is_meal" class="custom-control-input" value="0">
+      <input checked autocomplete="off" type="radio" id="customRadioInline6" name="is_meal" class="custom-control-input" value="0">
       <label class="custom-control-label" for="customRadioInline6">Tidak</label>
     </div>
     @if ($errors->has('is_meal'))
@@ -149,7 +149,7 @@
       <label class="custom-control-label" for="customRadioInline7">Ya, Bisa</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-      <input autocomplete="off" name="is_streaming" type="radio" id="customRadioInline8" name="is_streaming" class="custom-control-input" value="0" >
+      <input checked autocomplete="off" name="is_streaming" type="radio" id="customRadioInline8" name="is_streaming" class="custom-control-input" value="0" >
       <label class="custom-control-label" for="customRadioInline8">Tidak Bisa</label>
     </div>
     @if ($errors->has('is_streaming'))
