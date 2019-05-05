@@ -6,10 +6,11 @@
 
 @section('content')
 
-  @include('client.component.sidebarclient')
   @include('client.component.headerclient')
 
+  <div class="wrapper">
+  @include('client.component.textcontent')
   @include('client.component.formcheck')
   @include('client.component.formsubmit') 
-
+ </div>
 @endsection
