@@ -43,6 +43,7 @@
   <div class="form-group">
     <label for="image"><i class="fas fa-image"><span class="ml-2" style="font-family:ubuntu;"> Adakah gambar yang ingin ditambahkan?</span></i></label>
     <input autocomplete="off" type="file" name="image" id="image"  value="{{ old('image') }}">
+    <img id="img-upload" class="shadow img-fluid img-thumbnail" style="max-width:30%;" src="{{asset('images/pm.jpg')}}" alt="">
 
     @if ($errors->has('image'))
     <div class="alert alert-danger">

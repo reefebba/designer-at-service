@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Design;
 
 class DesignController extends Controller
@@ -43,6 +44,22 @@ class DesignController extends Controller
         $design->update([
             'status' => 'failed'
         ]);
+        
+        return redirect()->route('manager.dashboard');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Design  $design
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Design $design)
+    {
+        $file = substr(strrchr($design->image, "/"), 1);
+        Storage::delete('images/'.$file);
+        $design->delete();
+
         return redirect()->route('manager.dashboard');
     }
 }

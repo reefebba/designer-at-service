@@ -1,3 +1,4 @@
-*
+public/avatars/*
+public/images/*
 !public/avatars/profile.png
 !.gitignore
