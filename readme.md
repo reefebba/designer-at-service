@@ -7,7 +7,8 @@
 1. Set your database credentials in your `.env` file
 1. Set your FileSystem Driver in your `.env` file to public. Specifically `FILESYSTEM_DRIVER=public`
 1. `php artisan storage:link`.
-1. Set your `APP_URL` in your `.env` file. 
+1. Set your `APP_URL` in your `.env` file.
+1. Set your Google reCaptcha v3 credentials in your `.env` file. Specifically `GOOGLE_RECAPTCHA_SECRET` and `GOOGLE_RECAPTCHA_SITE_KEY`. 
 1. You may choose what data to be seeded to your database in `database/seeds/DatabaseSeeder.php`
 1. `php artisan migrate --seed`.
 1. `php artisan serve` or use Laravel Valet or Laravel Homestead
