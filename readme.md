@@ -16,13 +16,13 @@
 
 ## Contributing
 
-Thank you for considering contributing to this project! We currently don't have a contribution guide. But you may check [The Issues](https://github.com/reefebba/designer-at-service/issues).
+Thank you for considering contributing to this project! No one ever has enough engineers, so we're very happy to accept contributions via Pull Requests. We currently don't have a contribution guide. But you may check [The Issues](https://github.com/reefebba/designer-at-service/issues). and you'd definitely want to know [this](https://help.github.com/en/articles/closing-issues-using-keywords) if you're newcomer.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within this project, please send me an  e-mail via [this e-mail](rifebba@gmail.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this project, please send me an  e-mail via [rifebba@gmail.com](). All security vulnerabilities will be promptly addressed.
 
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT). 
-You may contact me for this project license via [this e-mail](rifebba@gmail.com).
+You may contact me for this project license via [rifebba@gmail.com]().
