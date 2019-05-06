@@ -42,7 +42,8 @@
           </div>
 
           <div class="form-group">
-              <label for="image"><i class="fas fa-image"><span class="ml-2" style="font-family:ubuntu;"> Adakah gambar yang ingin ditambahkan?</span></i></label>
+              <label for="image"><i class="fas fa-image"><span class="ml-2" style="font-family:ubuntu;"> Adakah gambar yang ingin ditakan?</span></i></label>
+              <img class="shadow img-fluid img-thumbnail" src="{{asset('images/pm.jpg')}}" id="img-upload" alt="test">
               <input type="file" name="image" id="image"  value="{{ old('image') }}" autofocus>
 
                @if ($errors->has('image'))

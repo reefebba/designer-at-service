@@ -22,7 +22,7 @@ class ClientController extends Controller
 
     public function checkStatus(Request $request)
     {
-        $design = Design::where('uuid', $request->uuid)->first();
+        $design = Design::where('code', $request->code)->first();
         if (!$design) {
             return view('client.design.error');
         }
@@ -46,6 +46,15 @@ class ClientController extends Controller
             
             $design->update(['image' => $path]);
         }
+
+        $ltr = chr(rand(65, 90));
+        $ltr2 = chr(rand(65, 90));
+        $ltr3 = chr(rand(65, 90));
+        $ltr4 = chr(rand(65, 90));
+        $id = $design->id + rand(0,10);
+        
+        $code = $ltr .rand(0,999). $id . $ltr2.$ltr3.$ltr4;
+        $design->update(['code'=>$code]);
 
         $design->client()->create($request->only(['client_name', 'client_phone']));
         $design->lecture()->create($request->only(['type', 'audience', 'title', 'tag_line', 'lecturer', 'book', 'place', 'date', 'time', 'organizer', 'contact', 'donation', 'is_meal', 'is_streaming']));
