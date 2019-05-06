@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
 
 class DesignRequest extends FormRequest
 {
@@ -49,8 +50,8 @@ class DesignRequest extends FormRequest
             'donation' => 'nullable',
             'is_meal' => 'required|boolean',
             'is_streaming' => 'required|boolean',
-            'add_info' => 'nullable'
-
+            'add_info' => 'nullable',
+            'g-recaptcha-response' => ['required', new GoogleReCaptchaV3ValidationRule('submit_design')]
         ];
     }
 }
