@@ -16,7 +16,7 @@
 
 ## Contributing
 
-Thank you for considering contributing to this project! We currently don't have a contribution guide. But you may check [The Issues](https://github.com/reefebba/designer-at-service/issues).
+Thank you for considering contributing to this project! No one ever has enough engineers, so we're very happy to accept contributions via Pull Requests. We currently don't have a contribution guide. But you may check [The Issues](https://github.com/reefebba/designer-at-service/issues). and you'd definitely want to know [this](https://help.github.com/en/articles/closing-issues-using-keywords) if you're newcomer.
 
 ## Security Vulnerabilities
 
