@@ -8,7 +8,7 @@
         <form class="border border-light p-5" method="POST" action="{{ route('client.design.check') }}" enctype="multipart/form-data">
           @csrf
           <p class="h4 mb-4 text-center">Masukan code unik design poster yang anda pesan</p>
-          <input type="text" name="uuid" class="form-control mb-4" placeholder="64baa976-c689-41e7-bdd1-0da5edad9712" autocomplete="off" >
+          <input type="text" name="code" class="form-control mb-4" placeholder="S66233TIV" autocomplete="off" >
           <div class="form-group text-center">
             <button class="btn btn-info my-4" type="submit">Ok, Check!</button>        
           </div>

@@ -19,7 +19,7 @@ Order show
 				<div class="card-body">
 					<h4 class="card-title"><i class="fas fa-user"><span class="ml-2" style="font-family:ubuntu;"><u>Client</u></span></i></h4>
 					<p class="card-text"><label for="client_name"><i class="fas fa-user"><span class="ml-2" style="font-family:ubuntu;"> Nama Antum : {{ $design->client->client_name }}</span></i></label></p>
-					<p class="card-text"><label for="uuid"><i class="fas fa-bookmark"><span class="ml-2" style="font-family:ubuntu;"> Code Unik: {{ $design->uuid }}</span></i></label></p>
+					<p class="card-text"><label for="uuid"><i class="fas fa-bookmark"><span class="ml-2" style="font-family:ubuntu;"> Code Unik: <b class="text-danger">{{ $design->code }}</b> </span></i></label></p>
 					<div class="alert alert-success" role="alert">
 						Code Unik tersebut bisa dimasukan pada form check status di homepage. Harap disimpan.
 					</div>
