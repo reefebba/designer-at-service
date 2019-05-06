@@ -16,8 +16,8 @@
       <label class="custom-control-label" for="size2">1:1 Resume</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-      <input autocomplete="off" type="radio" id="size3" name="size" class="custom-control-input" value="A4">
-      <label class="custom-control-label" for="size3">A4</label>
+      <input checked autocomplete="off" type="radio" id="size3" name="size" class="custom-control-input" value="A4">
+      <label  class="custom-control-label" for="size3">A4</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
       <input autocomplete="off" type="radio" id="size4" name="size" class="custom-control-input" value="Poster">
@@ -31,8 +31,8 @@
   </div>
 
   <div class="form-group">
-    <label for="base_color"><i class="fas fa-palette"><span class="ml-2" style="font-family:ubuntu;"> Warna dasar yang diinginkan? Click Dibawah</i></span></i></label>
-    <input autocomplete="off" type="color" name="base_color" id="base_color" value="{{ old('base_color') }}">
+    <label for="base_color"><i class="fas fa-palette"><span class="ml-2" style="font-family:ubuntu;"> Warna dasar yang diinginkan? Click Dibawah Lalu Enter</i></span></i></label>
+    <input style="width:10em; height: 5em; cursor:pointer;" autocomplete="off" type="color" name="base_color" id="base_color" value="{{ old('base_color') }}">
     @if ($errors->has('base_color'))
     <div class="alert alert-danger">
       <p style = 'text-align:center'>{{ $errors->first('base_color') }}</p>
