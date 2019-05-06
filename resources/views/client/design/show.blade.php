@@ -182,7 +182,7 @@ Order show
 				<!-- Button -->
 				<form action="{{ route('homepage') }}">
 					<div class="form-group text-center">
-						<button class="btn btn-primary" type="submit">Jazakallahukhairan</button> 
+						<button class="btn btn-primary" type="submit">Kembali, Jazakallahu khairan</button> 
 					</div>
 				</form>
 			</div>

@@ -53,7 +53,7 @@
 
   <div class="form-group">
     <label for="add_info"><i class="fas fa-info-circle"><span class="ml-2" style="font-family:ubuntu;"> Adakah pesan tambahan untuk designer?</span></i></label>
-    <textarea placeholder="Diharap tidak membawa jajanan dari luar" name="add_info" cols="50" rows="10"></textarea>
+    <textarea placeholder="cth. Tambahkan catatan: Diharap tidak membawa jajanan dari luar" name="add_info" cols="50" rows="5"></textarea>
     @if ($errors->has('add_info'))
     <div class="alert alert-danger">
       <p style = 'text-align:center'>{{ $errors->first('add_info') }}</p>
