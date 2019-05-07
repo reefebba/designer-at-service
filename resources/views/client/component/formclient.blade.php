@@ -17,7 +17,7 @@
 
  <div class="form-group">
   <label for="client_phone"><i class="fas fa-phone"></i><span class="ml-2" style="font-family:ubuntu;"> Nomor Telepon?</span></label>
-  <input autocomplete="off" class="form-control mb-4" type="tel" name="client_phone" id="client_phone" placeholder="cth. +62 822 1448 XXXX" value="{{ old('client_phone') }}" >
+  <input autocomplete="off" class="form-control mb-4" type="tel" name="client_phone" id="client_phone" placeholder="cth. 08221448XXXX" value="{{ old('client_phone') }}" >
 
   @if ($errors->has('client_phone'))
   <div class="alert alert-danger">
