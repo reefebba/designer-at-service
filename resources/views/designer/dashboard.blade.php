@@ -32,28 +32,28 @@ Beranda
             <a href="{{route('design.index')}}?status=open">
               <div class="order">
                 <h4>Open</h4>
-                <h2>{{$designs['open']}}</h2>
+                <h2>{{$designs->open}}</h2>
               </div>
             </a>
 
             <a href="{{route('design.index')}}?status=in-progress">
               <div class="order">
                 <h4>In progress</h4>
-                <h2>{{$designs['inProgress']}}</h2>
+                <h2>{{$designs->inProgress}}</h2>
               </div>
             </a>
 
             <a href="{{route('design.index')}}?status=finished">
               <div class="order">
                 <h4>Finished</h4>
-                <h2>{{$designs['finished']}}</h2>
+                <h2>{{$designs->finished}}</h2>
               </div>
             </a>
 
             <a href="{{route('design.index')}}?status=failed">
               <div class="order">
                 <h4>Failed</h4>
-                <h2>{{$designs['failed']}}</h2>
+                <h2>{{$designs->failed}}</h2>
               </div>
             </a>
 

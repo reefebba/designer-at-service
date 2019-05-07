@@ -18,17 +18,18 @@ class DesignController extends Controller
     {
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->simplePaginate(8)->withPath('design?status='.$request->status);
+                $designs = Design::where('status', $request->status)->simplePaginate(8)->withPath('design?status='.$request->status);
                 break;
             case 'finished':
-                $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+                $designs = Design::where('status', $request->status)->paginate(8)->withPath('design?status='.$request->status);
                 break;
             case 'failed':
-                $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+                $designs = Design::where('status', $request->status)->paginate(8)->withPath('design?status='.$request->status);
                 break;
             default:
-               $designs = Design::where('status', $request->status)->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
-               break;
+                $request->status = 'open';
+                $designs = Design::where('status', $request->status)->paginate(8)->withPath('design?status='.$request->status);
+                break;
         endswitch;
 
         return view('manager.design.index', compact('designs'));
@@ -57,7 +58,9 @@ class DesignController extends Controller
     public function destroy(Design $design)
     {
         $file = substr(strrchr($design->image, "/"), 1);
-        Storage::delete('images/'.$file);
+        if (isset($file)) {
+            Storage::delete('images/'.$file);
+        }
         $design->delete();
 
         return redirect()->route('manager.dashboard');

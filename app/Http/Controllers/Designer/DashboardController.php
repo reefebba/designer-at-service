@@ -3,28 +3,16 @@
 namespace App\Http\Controllers\Designer;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Auth;
-use App\Models\Design;
+use App\Repositories\DesignRepository;
 
 class DashboardController extends Controller
 {
     /**
      * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function dashboard()
+    public function dashboard(DesignRepository $designs)
     {
-        $id = Auth::user()->id;
-
-        $designs = [
-            'open' => Design::where('status', 'open')->count(),
-            'inProgress' => Design::where([['designer_id', $id], ['status', 'in-progress']])->count(),
-            'finished' => Design::where([['designer_id', $id], ['status', 'finished']])->count(),
-            'failed' => Design::where([['designer_id', $id], ['status', 'failed']])->count(),
-            'total' => Design::where([['designer_id', $id], ['status', 'total']])->count(),
-        ];
+        $designs = $designs->designerGetCounter();
 
         return view('designer.dashboard', compact('designs'));
     }  

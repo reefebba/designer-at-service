@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Designer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Auth;
+use App\Repositories\DesignRepository;
 use App\Models\Design;
 
 class DesignController extends Controller
@@ -15,23 +15,22 @@ class DesignController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, DesignRepository $designs)
     {
-        $id = Auth::user()->id;
-
         switch ($request->status) :
             case 'in-progress':
-                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->simplePaginate(8)->withPath('design?status='.$request->status);
+                $designs = $designs->designerGetAllWithStatus($request->status);
                 break;
             case 'finished':
-                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+                $designs = $designs->designerGetAllWithStatus($request->status);
                 break;
             case 'failed':
-                $designs = Design::where([['designer_id', $id], ['status', $request->status]])->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
+                $designs = $designs->designerGetAllWithStatus($request->status);
                 break;
             default:
-               $designs = Design::where('status', 'open')->join('lectures', 'designs.id', '=', 'lectures.design_id')->orderBy('lectures.date', 'desc')->paginate(8)->withPath('design?status='.$request->status);
-               break;
+                $request->status = 'open';
+                $designs = $designs->designerGetAllWithStatus($request->status);
+                break;
         endswitch;
 
         return view('designer.design.index', compact('designs'));

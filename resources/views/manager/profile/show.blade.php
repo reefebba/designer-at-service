@@ -88,7 +88,7 @@
                 
                 <div class="inputBox">
                   <label class="d-block">Nomor Telepon</label>
-                  <input value="{{ $designer->phone }}" class="profilPhone" type="tel" name="phone">
+                  <input value="{{ $designer->phone ?? old('phone') }}" class="profilPhone" type="tel" name="phone">
 
                   @if ($errors->has('phone'))
                   <div class="alert alert-danger">
