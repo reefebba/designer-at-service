@@ -42,6 +42,7 @@
 
   <div class="form-group">
     <label for="image"><i class="fas fa-image"><span class="ml-2" style="font-family:ubuntu;"> Adakah gambar yang ingin ditambahkan?</span></i></label>
+    <small class="text-danger">Maximal 2mb</small>
     <input autocomplete="off" type="file" name="image" id="image"  value="{{ old('image') }}">
     <img id="img-upload" class="shadow img-fluid img-thumbnail" style="max-width:30%;" src="{{asset('images/pm.jpg')}}" alt="">
 
