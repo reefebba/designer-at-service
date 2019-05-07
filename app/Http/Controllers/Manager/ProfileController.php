@@ -56,8 +56,12 @@ class ProfileController extends Controller
             $designer->update(['photo' => $path]);
         }
 
-        $designer->update($request->except('photo'));
-
+        if ($request->password == $designer->password) {
+            $designer->update($request->except(['photo', 'password']));
+        } else {
+            $designer->update($request->except('photo'));
+        }
+        
         return redirect()->route('manager.designer.index', $designer);
     }
 }
