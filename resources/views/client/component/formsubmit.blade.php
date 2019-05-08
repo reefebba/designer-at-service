@@ -1,4 +1,4 @@
-<form class="border border-light" method="POST" action="{{ route('design.store') }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('design.store') }}" enctype="multipart/form-data">
 	
   @include('client.component.formclient')
   @include('client.component.formkajian')
@@ -6,7 +6,7 @@
 
   @csrf
   {!! GoogleReCaptchaV3::renderField('submit_design_id','submit_design') !!}
-  <div class="form-group text-center">
-    <button class="btn btn-primary" type="submit">Ok, Submit!</button>  
+  <div style="text-align: right;">
+    <button class="waves-effect waves-light btn  purple lighten-1" type="submit">Ok, Submit!</button>  
   </div>
 </form>
