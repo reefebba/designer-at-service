@@ -14,7 +14,7 @@ class AddCodeToDesignsTable extends Migration
     public function up()
     {
         Schema::table('designs', function (Blueprint $table) {
-            $table->string('code')->nullable();
+            $table->string('code')->index();
         });
     }
 

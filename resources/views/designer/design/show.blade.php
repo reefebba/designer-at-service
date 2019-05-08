@@ -45,7 +45,6 @@ Design detail
       <div class="row">
         <div class="col-md-12 mb-5">
           <div class="detailorder">
-            <a href="/designer/design/{{$design->id}}" class="link-detail-order mx-3">Detail</a>
             <div class="modal-body d-flex">
               <div class="w-100">
                 <p>Jenis Kajian</p>

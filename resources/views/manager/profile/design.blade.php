@@ -27,7 +27,15 @@
     @include('manager.component.header')
     <!-- End header -->
 
-
+@if (count($designs) === 0)
+<div class="container mt-5">
+  <div class="alert alert-success" role="alert">
+    <p class="alert-heading">Notice!</p>
+    <hr>
+    <h4>There is no project!</h4>
+  </div>
+</div>
+@endif
 <div class="container text center my-5">
   <div class="row">
     @foreach($designs as $design)

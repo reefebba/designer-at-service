@@ -72,13 +72,13 @@ Beranda
           <div class="order-box">
             <a href="{{route('manager.designer.index')}}">
               <div class="order designer">
-                <h4>Desaigner Active</h4>
+                <h4>Active Designer</h4>
                 <h2>{{$designers['active']}}</h2>
               </div>
             </a>
             <a href="{{route('manager.designer.index')}}?state=banned">
               <div class="order designer">
-                <h4>Desaigner banned</h4>
+                <h4>Banned Designer</h4>
                 <h2>{{$designers['banned']}}</h2>
               </div>
             </a>

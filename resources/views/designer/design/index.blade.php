@@ -45,7 +45,7 @@ Design
           <div class="order-card mx-auto">
             <input class="btn-detail-order" type="checkbox" name="" >
             <div class="toggle"><i class="fas fa-info"></i></div>
-            <a href="/designer/design/{{$design->uuid}}" class="link-detail-order mx-3">Detail</a>
+            <a href="{{route('design.show', $design)}}" class="link-detail-order mx-3">Detail</a>
             <div class="short-desc mx-3 mt-3">
               <h5 class="order-id">Jenis Kajian : {{$design->lecture->type}} </h5>
               <h5 class="order-id">Judul Kajian : {{$design->lecture->title}}</h5>

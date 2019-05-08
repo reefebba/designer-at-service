@@ -11,5 +11,6 @@ $factory->define(Design::class, function (Faker $faker) {
         'size' => 'A4',
         'image' => $faker->imageUrl,
         'add_info' => 'Nullable',
+        // 'code' => $faker->shuffle('W74213BLX')
     ];
 });
