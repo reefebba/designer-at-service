@@ -23,7 +23,7 @@ class DashboardController extends Controller
             'inProgress' => Design::where([['designer_id', $id], ['status', 'in-progress']])->count(),
             'finished' => Design::where([['designer_id', $id], ['status', 'finished']])->count(),
             'failed' => Design::where([['designer_id', $id], ['status', 'failed']])->count(),
-            'total' => Design::where([['designer_id', $id], ['status', 'total']])->count(),
+            'total' => Design::where('designer_id', $id)->count(),
         ];
 
         return view('designer.dashboard', compact('designs'));

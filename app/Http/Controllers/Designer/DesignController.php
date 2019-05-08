@@ -30,8 +30,9 @@ class DesignController extends Controller
                 $designs = Design::where([['designer_id', $id], ['status', $request->status]])->paginate(8)->withPath('design?status='.$request->status);
                 break;
             default:
-               $designs = Design::where('status', 'open')->paginate(8)->withPath('design?status='.$request->status);
-               break;
+                $request->status = 'open';
+                $designs = Design::where('status', $request->status)->paginate(8)->withPath('design?status='.$request->status);
+                break;
         endswitch;
 
         return view('designer.design.index', compact('designs'));
