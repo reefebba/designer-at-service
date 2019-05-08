@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\UuidGenerator;
+use App\Traits\UuidAndCodeGenerator;
 
 class Design extends Model
 {
-    use UuidGenerator;
+    use UuidAndCodeGenerator;
 
     protected $guarded = [
     	'id', 'uuid', 'created_at', 'updated_at'

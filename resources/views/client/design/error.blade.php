@@ -20,7 +20,7 @@ Order show
 		<div class="error text-center">
 			<h1>Code Unik Antum tidak ditemukan!</h1>
 			<h2>Silakan Antum cek kembali!</h2>
-			<a href="{{route('homepage')}}" class="btn btn-primary">Jazakallahukhairan</a>
+			<a href="{{route('homepage')}}" class="btn btn-primary">Jazakallahu khairan</a>
 		</div>
 	</div>
 	<footer>
