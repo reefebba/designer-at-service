@@ -108,12 +108,7 @@ Design detail
               <form method="POST" action="{{route('manager.design.fail', $design)}}">
                 @csrf
                 @method('PUT')
-                <button class="m-2 btn btn-warning">Fail</button>
-              </form>
-              <form method="POST" action="{{route('manager.design.destroy', $design)}}">
-                @csrf
-                @method('DELETE')
-                <button class="m-2 btn btn-danger">Delete</button>
+                <button class="m-2 btn btn-danger">Fail</button>
               </form>
               @endif
             </div>

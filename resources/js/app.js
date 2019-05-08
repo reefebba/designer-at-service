@@ -31,3 +31,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+	var elems = document.querySelectorAll('.datepicker');
+	var instances = M.Datepicker.init(elems, options);
+});

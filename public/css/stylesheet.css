@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+body {
+  background: #f3e5f5;
+  font-family: sans-serif;
+}
+
 /** Opening **/
 
 .intro {
@@ -48,7 +53,7 @@
 /** Styling **/
 .sidebar {
     position: sticky;
-    background-color: #005858;
+    background-color: #A83FBB;
     border-right: 1px solid #eee;
 }
 
@@ -237,7 +242,7 @@ article p {
 }
 
 .navbar {
-  background-color: #005858!important;
+  background-color: #A83FBB!important;
   padding-top: 0!important;
   padding-bottom: 0!important;
   box-shadow: 0 5px 7px rgba(51, 51, 51, .2);
@@ -272,9 +277,9 @@ article p {
 }
 
 .navbar-toggler {
-  border: 1px solid #fff!important;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  /*border: 1px solid #fff!important;*/
+  margin-top: 7px !important;
+  margin-bottom: 5px !important;
 }
 .navbar-toggler-icon {
   background-image: url('../images/toggler-menu.svg')!important;
@@ -308,4 +313,60 @@ article p {
       margin-top: 20px;
       text-align: center!important;
     }
+}
+
+
+/*new style*/
+.wrapper {
+  margin: 50px 100px;
+  padding: 50px;
+  background: white;
+  border-radius: 5px;
+}
+
+.img-person {
+  width: 50%;
+}
+
+.margin-bottom {
+  margin-bottom: 80px;
+}
+
+.color-secondary {
+  color: gray;
+}
+
+.color-primary {
+  color: #2C2C2C;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
+.select {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+@media (max-width : 768px ) {
+  .wrapper {
+    margin: 10px;
+    padding: 10px;
+  }
 }
