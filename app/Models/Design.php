@@ -30,7 +30,7 @@ class Design extends Model
     public function designer()
     {
     	return $this->belongsTo(Designer::class)->withDefault([
-    		'name' => 'This design hasn\'t been taken yet by any designer.'
+    		'name' => 'None.'
     	]);
     }
 

@@ -45,7 +45,6 @@ Design detail
       <div class="row">
         <div class="col-md-12 mb-5">
           <div class="detailorder">
-            <a href="/design/{{$design->id}}" class="link-detail-order mx-3">Detail</a>
             <div class="modal-body d-flex">
               <div class="w-100">
                 <p>Jenis Kajian</p>
@@ -108,7 +107,12 @@ Design detail
               <form method="POST" action="{{route('manager.design.fail', $design)}}">
                 @csrf
                 @method('PUT')
-                <button class="m-2 btn btn-danger">Fail</button>
+                <button class="m-2 btn btn-warning">Fail</button>
+              </form>
+              <form method="POST" action="{{route('manager.design.destroy', $design)}}">
+                @csrf
+                @method('DELETE')
+                <button class="m-2 btn btn-danger">Delete</button>
               </form>
               @endif
             </div>
